@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import CartaoMateria from '../../components/CartaoMateria.astro';
+import { EDITORIAS, type Editoria } from '../../lib/editorias';
+import { materiasPublicadas } from '../../lib/materias';
+
+export function getStaticPaths() {
+  return Object.keys(EDITORIAS).map((editoria) => ({ params: { editoria } }));
+}
+
+const editoria = Astro.params.editoria as Editoria;
+const nome = EDITORIAS[editoria];
+const materias = (await materiasPublicadas()).filter((materia) => materia.data.editoria === editoria);
+---
+
+<Base titulo={nome} descricao={`Matérias de ${nome.toLowerCase()} do Carcará Editorial, com dados de fontes oficiais.`}>
+  <div class="container">
+    <header class="editoria__cabecalho">
+      <p class="rotulo">Editoria</p>
+      <h1>{nome}</h1>
+    </header>
+    {
+      materias.length > 0 ? (
+        <div class="grade">
+          {materias.map((materia) => (
+            <CartaoMateria materia={materia} />
+          ))}
+        </div>
+      ) : (
+        <p class="editoria__vazia">Ainda não há matérias publicadas nesta editoria.</p>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .editoria__cabecalho {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-block-end: var(--base-size-32);
+    padding-block-end: var(--space-md);
+    border-bottom: var(--borderWidth-thick) solid var(--fgColor-default);
+  }
+
+  .editoria__cabecalho h1 {
+    font-size: var(--text-title-size-large);
+  }
+
+  .editoria__vazia {
+    color: var(--fgColor-muted);
+  }
+</style>

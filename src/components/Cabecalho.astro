@@ -1,0 +1,97 @@
+---
+import { EDITORIAS } from '../lib/editorias';
+
+const caminho = Astro.url.pathname;
+---
+
+<header class="cabecalho">
+  <div class="container cabecalho__interno">
+    <a class="marca" href="/">
+      <span class="marca__nome">Carcará Editorial</span>
+      <span class="marca__descricao">Jornalismo de dados</span>
+    </a>
+    <nav aria-label="Editorias">
+      <ul class="editorias">
+        {
+          Object.entries(EDITORIAS).map(([chave, nome]) => (
+            <li>
+              <a
+                href={`/${chave}/`}
+                aria-current={caminho.startsWith(`/${chave}/`) ? 'page' : undefined}
+              >
+                {nome}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .cabecalho {
+    border-bottom: var(--borderWidth-default) solid var(--borderColor-default);
+    background: var(--bgColor-default);
+  }
+
+  .cabecalho__interno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md) var(--base-size-24);
+    padding-block: var(--space-lg);
+  }
+
+  .marca {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+    color: var(--fgColor-default);
+    text-decoration: none;
+  }
+
+  .marca__nome {
+    font-size: var(--text-title-size-medium);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: var(--base-text-lineHeight-tight);
+  }
+
+  .marca__descricao {
+    font-family: var(--fontStack-monospace);
+    font-size: var(--text-caption-size);
+    font-weight: var(--base-text-weight-medium);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fgColor-accent);
+  }
+
+  .editorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .editorias a {
+    display: inline-block;
+    padding-block: var(--space-xs);
+    font-weight: var(--base-text-weight-medium);
+    color: var(--fgColor-muted);
+    text-decoration: none;
+    border-bottom: var(--borderWidth-thick) solid transparent;
+  }
+
+  .editorias a:hover {
+    color: var(--fgColor-default);
+  }
+
+  .editorias a[aria-current='page'] {
+    color: var(--fgColor-default);
+    border-bottom-color: var(--borderColor-accent-emphasis);
+  }
+</style>

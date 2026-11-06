@@ -25,7 +25,7 @@ O Carcará Editorial é um veículo brasileiro e independente de jornalismo de d
 ## Design
 
 - O design segue o Primer, sistema de design do GitHub, por meio dos tokens do pacote `@primer/primitives`.
-- As cores vêm da paleta do Carcará, definida em um único arquivo que sobrescreve os tokens de cor do Primer. Nenhum componente usa cor literal.
+- As cores vêm da paleta do Carcará, que `src/styles/carcara.css` aplica aos tokens de cor do Primer. Esse é o único arquivo com cores literais.
 - O site tem tema claro e escuro e segue a preferência do sistema do leitor.
 - O contraste atende ao nível AA da WCAG 2.1, e o layout funciona a partir de 320 px de largura.
 - As páginas não carregam JavaScript por padrão. Um componente só usa JavaScript quando a interação exige, como num gráfico interativo.
@@ -47,14 +47,16 @@ src/content.config.ts   esquema dos metadados das matérias
 src/pages/              rotas do site
 src/layouts/            moldes de página
 src/components/         componentes reutilizáveis
+src/lib/                funções e constantes compartilhadas, como as editorias
 src/styles/             tokens do Primer, paleta do Carcará e estilos globais
 public/                 arquivos servidos sem processamento, como favicon e imagens
-.github/workflows/      build e publicação no GitHub Pages
+.github/workflows/      build em todo pull request e publicação a partir da main
 ```
 
 ## Matérias
 
-- Cada matéria é um arquivo `AAAA-MM-DD-slug.md` em `src/content/materias/`.
+- Cada matéria é um arquivo `AAAA-MM-DD-slug.md` em `src/content/materias/`, e a data do nome é a mesma do campo `publicadoEm`.
+- O build ignora arquivos com prefixo `_`. O `_modelo.md` é o ponto de partida de toda matéria nova.
 - Os metadados obrigatórios estão no esquema de `src/content.config.ts`, e o build falha quando algum falta. Consulte o esquema em vez de presumir os campos.
 - A URL de uma matéria é `/AAAA/MM/slug/` e nunca muda depois da publicação.
 - Toda matéria derivada de um vídeo traz o link para ele no YouTube.

@@ -1,30 +1,16 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Política de Privacidade · Carcará Editorial</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-<div class="wrap">
-  <header>
-    <span class="eyebrow">Carcará Editorial · jornalismo de dados</span>
-    <h1>Política de Privacidade</h1>
-    <p class="meta">Vigente desde 29 de outubro de 2026 · Effective October 29, 2026</p>
-    <nav class="lang" aria-label="Navegação / Navigation">
-      <a href="index.html">Início · Home</a>
-      <a href="#pt">Português</a>
-      <a href="#en">English</a>
-      <a href="termos.html">Termos de Uso · Terms of Use</a>
-    </nav>
-  </header>
+---
+import Documento from '../layouts/Documento.astro';
+---
 
-  <section class="lang-block" id="pt" lang="pt-BR">
-    <span class="lang-tag">Português</span>
+<Documento
+  titulo="Política de Privacidade"
+  descricao="Como a ferramenta carcara-editorial-canal trata os dados obtidos pelos Serviços de API do YouTube."
+  vigencia="Vigente desde 29 de outubro de 2026 · Effective October 29, 2026"
+>
+  <section class="bloco-idioma" id="pt" lang="pt-BR">
+    <span class="idioma">Português</span>
 
-    <div class="summary">
+    <div class="resumo">
       <p>Em resumo: a ferramenta <strong>carcara-editorial-canal</strong> é de uso interno e só acessa o canal do próprio Carcará Editorial. Ela não coleta dados de espectadores, não vende nem compartilha dados com anunciantes e pode ter o acesso revogado a qualquer momento.</p>
     </div>
 
@@ -93,10 +79,10 @@
 
   <hr>
 
-  <section class="lang-block" id="en" lang="en">
-    <span class="lang-tag">English</span>
+  <section class="bloco-idioma" id="en" lang="en">
+    <span class="idioma">English</span>
 
-    <div class="summary">
+    <div class="resumo">
       <p>In short: the <strong>carcara-editorial-canal</strong> tool is for internal use only and accesses only Carcará Editorial's own channel. It does not collect viewer data, does not sell or share data with advertisers, and its access can be revoked at any time.</p>
     </div>
 
@@ -162,8 +148,4 @@
       <p>Changes to this policy will be posted on this page with a new effective date.</p>
     </article>
   </section>
-
-  <footer>Carcará Editorial · 2026</footer>
-</div>
-</body>
-</html>
+</Documento>

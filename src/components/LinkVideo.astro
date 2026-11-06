@@ -1,0 +1,62 @@
+---
+// Link simples para o vídeo, sem incorporar o player nem carregar a miniatura,
+// para que a página não faça requisições ao YouTube.
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<a class="video" href={url} rel="noopener">
+  <svg class="video__icone" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M8 5.5v13l11-6.5z" fill="currentColor"></path>
+  </svg>
+  <span class="video__texto">
+    <span class="video__chamada">Assista ao vídeo</span>
+    <span class="video__destino">no YouTube</span>
+  </span>
+</a>
+
+<style>
+  .video {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--base-size-20) var(--space-md) var(--space-md);
+    background: var(--bgColor-muted);
+    border: var(--borderWidth-default) solid var(--borderColor-default);
+    border-radius: var(--borderRadius-medium);
+    color: var(--fgColor-default);
+    text-decoration: none;
+  }
+
+  .video:hover {
+    border-color: var(--borderColor-accent-emphasis);
+  }
+
+  .video__icone {
+    width: var(--base-size-40);
+    height: var(--base-size-40);
+    padding: var(--space-sm);
+    border-radius: var(--borderRadius-full);
+    background: var(--bgColor-accent-emphasis);
+    color: var(--fgColor-onEmphasis);
+    flex-shrink: 0;
+  }
+
+  .video__texto {
+    display: flex;
+    flex-direction: column;
+    line-height: var(--base-text-lineHeight-tight);
+  }
+
+  .video__chamada {
+    font-weight: var(--base-text-weight-semibold);
+  }
+
+  .video__destino {
+    font-size: var(--text-body-size-medium);
+    color: var(--fgColor-muted);
+  }
+</style>

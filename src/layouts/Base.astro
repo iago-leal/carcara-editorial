@@ -1,0 +1,48 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/tokens.css';
+import '../styles/carcara.css';
+import '../styles/global.css';
+import Cabecalho from '../components/Cabecalho.astro';
+import Rodape from '../components/Rodape.astro';
+
+interface Props {
+  titulo?: string;
+  descricao: string;
+  tipo?: 'website' | 'article';
+}
+
+const NOME = 'Carcará Editorial';
+const { titulo, descricao, tipo = 'website' } = Astro.props;
+const tituloDaAba = titulo ? `${titulo} · ${NOME}` : NOME;
+const canonica = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{tituloDaAba}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonica} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={NOME} href="/rss.xml" />
+    <meta property="og:site_name" content={NOME} />
+    <meta property="og:type" content={tipo} />
+    <meta property="og:title" content={titulo ?? NOME} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:locale" content="pt_BR" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <Cabecalho />
+    <main id="conteudo">
+      <slot />
+    </main>
+    <Rodape />
+  </body>
+</html>
