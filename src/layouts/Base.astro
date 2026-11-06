@@ -4,6 +4,8 @@ import '@fontsource/ibm-plex-mono/500.css';
 import '../styles/tokens.css';
 import '../styles/carcara.css';
 import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import logo from '../assets/marca/carcara.png';
 import Cabecalho from '../components/Cabecalho.astro';
 import Rodape from '../components/Rodape.astro';
 
@@ -17,6 +19,11 @@ const NOME = 'Carcará Editorial';
 const { titulo, descricao, tipo = 'website' } = Astro.props;
 const tituloDaAba = titulo ? `${titulo} · ${NOME}` : NOME;
 const canonica = new URL(Astro.url.pathname, Astro.site);
+
+// Os ícones do navegador e da tela inicial do celular saem da mesma logo, no build.
+const icone = await getImage({ src: logo, width: 32, height: 32, format: 'png' });
+const iconeApple = await getImage({ src: logo, width: 180, height: 180, format: 'png' });
+const imagemCompartilhamento = await getImage({ src: logo, width: 512, height: 512, format: 'png' });
 ---
 
 <!doctype html>
@@ -27,7 +34,8 @@ const canonica = new URL(Astro.url.pathname, Astro.site);
     <title>{tituloDaAba}</title>
     <meta name="description" content={descricao} />
     <link rel="canonical" href={canonica} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={icone.src} type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href={iconeApple.src} />
     <link rel="alternate" type="application/rss+xml" title={NOME} href="/rss.xml" />
     <meta property="og:site_name" content={NOME} />
     <meta property="og:type" content={tipo} />
@@ -35,6 +43,10 @@ const canonica = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={descricao} />
     <meta property="og:url" content={canonica} />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content={new URL(imagemCompartilhamento.src, Astro.site)} />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Logo do Carcará Editorial: cabeça de carcará em laranja, branco e preto" />
     <slot name="head" />
   </head>
   <body>

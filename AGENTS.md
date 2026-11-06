@@ -42,6 +42,7 @@ O site é gerado pelo Astro, com Node.js e npm.
 ## Estrutura de pastas
 
 ```
+src/assets/marca/       logo do Carcará, fonte única do cabeçalho e dos ícones
 src/content/materias/   matérias em Markdown, uma por arquivo
 src/content.config.ts   esquema dos metadados das matérias
 src/pages/              rotas do site

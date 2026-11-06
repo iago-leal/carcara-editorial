@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/marca/carcara.png';
 import { EDITORIAS } from '../lib/editorias';
 
 const caminho = Astro.url.pathname;
@@ -7,8 +9,11 @@ const caminho = Astro.url.pathname;
 <header class="cabecalho">
   <div class="container cabecalho__interno">
     <a class="marca" href="/">
-      <span class="marca__nome">Carcará Editorial</span>
-      <span class="marca__descricao">Jornalismo de dados</span>
+      <Image class="marca__logo" src={logo} alt="" width={48} height={48} densities={[1, 2, 3]} loading="eager" />
+      <span class="marca__texto">
+        <span class="marca__nome">Carcará Editorial</span>
+        <span class="marca__descricao">Jornalismo de dados</span>
+      </span>
     </a>
     <nav aria-label="Editorias">
       <ul class="editorias">
@@ -46,10 +51,25 @@ const caminho = Astro.url.pathname;
 
   .marca {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-xxs);
+    align-items: center;
+    gap: var(--space-md);
     color: var(--fgColor-default);
     text-decoration: none;
+  }
+
+  /* A logo tem fundo escuro próprio; o recorte redondo repete o do perfil no YouTube. */
+  .marca__logo {
+    width: var(--base-size-48);
+    height: var(--base-size-48);
+    border-radius: var(--borderRadius-full);
+    box-shadow: 0 0 0 var(--borderWidth-thin) var(--borderColor-default);
+    flex-shrink: 0;
+  }
+
+  .marca__texto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
   }
 
   .marca__nome {
