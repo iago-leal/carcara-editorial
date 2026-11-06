@@ -24,6 +24,10 @@ fontes:
     url: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1394.htm
   - nome: Congresso Nacional, tramitação da MPV 1394/2026
     url: https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/175871
+  - nome: Poder360, decisão do TRF-3 que liberou três bets da CDA Gaming
+    url: https://www.poder360.com.br/poder-governo/governo-recorrera-de-decisao-que-liberou-3-bets-no-brasil
+  - nome: iGaming Business Brasil, audiência pública do STF sobre a MP 1.394
+    url: https://igamingbusiness.com/br/juridico-conformidade/liminar-cda-gaming-arbitragem-juridica-mp-1394-alex-pariente
   - nome: Banco Central do Brasil, Estatísticas do Pix
     url: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/
   - nome: Ministério da Saúde, Não aposte sua saúde
@@ -88,6 +92,8 @@ A [MP 1.394](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv139
 
 Com a proibição, o Pix de pessoas para empresas do setor em que as bets se registram caiu de R$ 33,3 bilhões em agosto para R$ 25,1 bilhões em setembro e R$ 2,8 bilhões em outubro, uma queda de 91,7%, segundo as [estatísticas do Pix do Banco Central](https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/). A série, contudo, inclui clubes, academias e outras empresas de artes, cultura, esporte e recreação. Ela também não alcança os sites ilegais, dos quais mais de 25 mil endereços tinham sido bloqueados até dezembro de 2025.
 
-A proibição ainda não é definitiva, porque a MP precisa ser votada pelo [Congresso Nacional](https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/175871). Em 2 de novembro, ela aguardava a instalação da comissão mista. O prazo inicial de votação vai até 23 de novembro e pode ser prorrogado por mais 60 dias.
+A proibição ainda não é definitiva, porque a MP precisa ser votada pelo [Congresso Nacional](https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/175871). Em 6 de novembro, ela aguardava a instalação da comissão mista. A partir de 9 de novembro, a MP passa a trancar a pauta de votações, e o prazo inicial para votá-la vai até 23 de novembro, prorrogável por mais 60 dias.
+
+Em 3 de novembro, uma decisão provisória do Tribunal Regional Federal da 3ª Região suspendeu os efeitos da MP apenas para a CDA Gaming, dona das marcas Casa de Apostas, Betsul e Jogo Online, que voltaram a operar. A Advocacia-Geral da União informou que vai recorrer, segundo o [Poder360](https://www.poder360.com.br/poder-governo/governo-recorrera-de-decisao-que-liberou-3-bets-no-brasil). No mesmo dia, o Supremo Tribunal Federal fez uma audiência pública sobre a MP, ainda sem decisão, segundo o [iGaming Business Brasil](https://igamingbusiness.com/br/juridico-conformidade/liminar-cda-gaming-arbitragem-juridica-mp-1394-alex-pariente).
 
 Quem precisa de ajuda com apostas pode buscar atendimento gratuito no SUS pelo Meu SUS Digital, nas unidades básicas de saúde, nos CAPS ou pelo Disque Saúde 136, segundo o [Ministério da Saúde](https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/saude-mental/nao-aposte-sua-saude).
