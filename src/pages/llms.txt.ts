@@ -26,6 +26,7 @@ export async function GET(context: APIContext) {
     '',
     '## Institucional',
     '',
+    `- [A ferramenta carcara-editorial-canal](${urlAbsoluta('/ferramenta.html', site)}): cliente interno da API do YouTube que envia e agenda os vídeos do canal`,
     `- [Política de Privacidade](${urlAbsoluta('/privacidade.html', site)}): como a ferramenta carcara-editorial-canal trata dados da API do YouTube`,
     `- [Termos de Uso](${urlAbsoluta('/termos.html', site)}): condições de uso da ferramenta carcara-editorial-canal`,
     '',

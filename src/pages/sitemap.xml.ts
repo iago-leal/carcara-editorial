@@ -24,6 +24,7 @@ export async function GET(context: APIContext) {
       loc: urlAbsoluta(urlDaMateria(materia), site),
       lastmod: ultimaAtualizacao(materia),
     })),
+    { loc: urlAbsoluta('/ferramenta.html', site) },
     { loc: urlAbsoluta('/privacidade.html', site) },
     { loc: urlAbsoluta('/termos.html', site) },
   ];

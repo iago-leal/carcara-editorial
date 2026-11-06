@@ -72,8 +72,8 @@ scripts/                scripts auxiliares da publicação
 
 ## Invariantes
 
-- As URLs `/privacidade.html` e `/termos.html` não mudam, porque estão registradas na verificação OAuth do Google.
-- A página inicial descreve a ferramenta carcara-editorial-canal e mantém um link visível para a Política de Privacidade, exigências da mesma verificação.
+- As URLs `/ferramenta.html`, `/privacidade.html` e `/termos.html` não mudam, porque estão registradas na verificação OAuth do Google.
+- A `/ferramenta.html` é a página inicial do aplicativo nessa verificação: descreve a ferramenta carcara-editorial-canal e liga para a Política de Privacidade. O rodapé de todas as páginas, inclusive a capa, mantém links visíveis para ela e para a Política de Privacidade.
 - Qualquer mudança que passe a coletar dados de visitantes, como analytics, cookies ou vídeos incorporados, atualiza a Política de Privacidade no mesmo pull request.
 - Nenhum segredo, token ou credencial entra no repositório.
 
