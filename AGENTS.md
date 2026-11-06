@@ -20,7 +20,6 @@ O Carcará Editorial é um veículo brasileiro e independente de jornalismo de d
 2. Nenhum dado, citação ou fonte é inventado. Quando uma informação não está disponível, o texto diz isso.
 3. Fato e análise ficam separados e identificados.
 4. A correção de uma matéria publicada fica registrada na própria matéria, com a data. Nenhum conteúdo publicado muda em silêncio.
-5. O uso de IA na produção, como a narração sintética, é declarado conforme a política editorial do site.
 
 ## Design
 
@@ -52,6 +51,7 @@ src/lib/                funções e constantes compartilhadas, como as editorias
 src/styles/             tokens do Primer, paleta do Carcará e estilos globais
 public/                 arquivos servidos sem processamento, como favicon e imagens
 .github/workflows/      build em todo pull request e publicação a partir da main
+scripts/                scripts auxiliares da publicação
 ```
 
 ## Matérias
@@ -80,3 +80,5 @@ public/                 arquivos servidos sem processamento, como favicon e imag
 ## Publicação
 
 Toda mudança chega à branch `main` por pull request. O push na `main` dispara o GitHub Actions, que gera o site e o publica no GitHub Pages, no domínio carcaraeditorial.com.br.
+
+O Actions também roda a cada 15 minutos. Nessa execução agendada, ele gera o site e só publica quando a lista de matérias difere da do site no ar, o que acontece quando uma matéria agendada chega ao horário. Como o GitHub atrasa execuções agendadas, a matéria pode entrar no ar até cerca de meia hora depois do vídeo.
