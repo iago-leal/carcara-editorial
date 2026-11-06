@@ -1,22 +1,23 @@
 ---
-// Molde das páginas institucionais bilíngues, como privacidade e termos.
+// Molde das páginas institucionais bilíngues: ferramenta, privacidade e termos.
 import Base from './Base.astro';
 
 interface Props {
   titulo: string;
   descricao: string;
-  vigencia: string;
+  rotulo?: string;
+  vigencia?: string;
 }
 
-const { titulo, descricao, vigencia } = Astro.props;
+const { titulo, descricao, rotulo = 'Documento', vigencia } = Astro.props;
 ---
 
 <Base titulo={titulo} descricao={descricao}>
   <div class="container documento">
     <header class="documento__cabecalho leitura">
-      <p class="rotulo">Documento</p>
+      <p class="rotulo">{rotulo}</p>
       <h1>{titulo}</h1>
-      <p class="documento__vigencia">{vigencia}</p>
+      {vigencia && <p class="documento__vigencia">{vigencia}</p>}
       <nav class="documento__idiomas" aria-label="Idioma / Language">
         <a href="#pt">Português</a>
         <a href="#en">English</a>

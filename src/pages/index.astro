@@ -52,27 +52,6 @@ const dadosEstruturados = [
         </section>
       )
     }
-
-    {/* Bloco exigido pela verificação OAuth do Google: descreve a ferramenta e aponta a política de privacidade. */}
-    <section class="ferramenta leitura" id="ferramenta" aria-labelledby="titulo-ferramenta">
-      <h2 id="titulo-ferramenta" class="ferramenta__titulo">A ferramenta carcara-editorial-canal</h2>
-      <p>
-        O <strong>carcara-editorial-canal</strong> é um cliente interno dos Serviços de API do YouTube,
-        usado apenas pelo responsável pelo canal para enviar e agendar os vídeos do Carcará Editorial,
-        manter os metadados deles e ler as métricas de desempenho do próprio canal. Ele não é oferecido
-        ao público e não acessa outros canais.
-        O tratamento de dados está descrito na <a href="/privacidade.html">Política de Privacidade</a>, e as condições de uso, nos <a href="/termos.html">Termos de Uso</a>.
-        Quem usa a ferramenta concorda com os <a href="https://www.youtube.com/t/terms" rel="noopener">Termos de Serviço do YouTube</a>.
-      </p>
-      <p lang="en">
-        <strong>carcara-editorial-canal</strong> is an internal YouTube API Services client, used only
-        by the channel owner to upload and schedule Carcará Editorial's videos, maintain their metadata
-        and read the channel's own performance metrics. It is not offered to the public and does not
-        access any other channel.
-        How data is handled is described in the <a href="/privacidade.html#en">Privacy Policy</a>, and the conditions of use in the <a href="/termos.html#en">Terms of Use</a>.
-        Anyone using the tool agrees to the <a href="https://www.youtube.com/t/terms" rel="noopener">YouTube Terms of Service</a>.
-      </p>
-    </section>
   </div>
 </Base>
 
@@ -97,29 +76,5 @@ const dadosEstruturados = [
     font-size: var(--carcara-texto-leitura);
     line-height: var(--base-text-lineHeight-relaxed);
     color: var(--fgColor-muted);
-  }
-
-  .ferramenta {
-    margin-block-start: var(--base-size-64);
-    padding: var(--base-size-20);
-    background: var(--bgColor-muted);
-    border: var(--borderWidth-default) solid var(--borderColor-default);
-    border-radius: var(--borderRadius-medium);
-    font-size: var(--text-body-size-medium);
-    color: var(--fgColor-muted);
-  }
-
-  .ferramenta__titulo {
-    font-size: var(--text-title-size-small);
-    color: var(--fgColor-default);
-    margin-block-end: var(--space-md);
-  }
-
-  .ferramenta p {
-    margin: 0;
-  }
-
-  .ferramenta p + p {
-    margin-block-start: var(--space-md);
   }
 </style>
