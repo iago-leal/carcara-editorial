@@ -12,7 +12,7 @@ const caminho = Astro.url.pathname;
       <Image class="marca__logo" src={logo} alt="" width={48} height={48} densities={[1, 2, 3]} loading="eager" />
       <span class="marca__texto">
         <span class="marca__nome">Carcará Editorial</span>
-        <span class="marca__descricao">Jornalismo de dados</span>
+        <span class="marca__slogan">As notícias explicadas <strong>pelos números.</strong></span>
       </span>
     </a>
     <nav aria-label="Editorias">
@@ -79,12 +79,15 @@ const caminho = Astro.url.pathname;
     line-height: var(--base-text-lineHeight-tight);
   }
 
-  .marca__descricao {
-    font-family: var(--fontStack-monospace);
-    font-size: var(--text-caption-size);
-    font-weight: var(--base-text-weight-medium);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  /* Mesmo desenho do banner do canal: frase discreta, com "pelos números." em destaque. */
+  .marca__slogan {
+    font-size: var(--text-body-size-medium);
+    line-height: var(--base-text-lineHeight-tight);
+    color: var(--fgColor-muted);
+  }
+
+  .marca__slogan strong {
+    font-weight: var(--base-text-weight-semibold);
     color: var(--fgColor-accent);
   }
 

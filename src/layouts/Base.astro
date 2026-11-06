@@ -16,8 +16,9 @@ interface Props {
 }
 
 const NOME = 'Carcará Editorial';
+const SLOGAN = 'As notícias explicadas pelos números';
 const { titulo, descricao, tipo = 'website' } = Astro.props;
-const tituloDaAba = titulo ? `${titulo} · ${NOME}` : NOME;
+const tituloDaAba = titulo ? `${titulo} · ${NOME}` : `${NOME} · ${SLOGAN}`;
 const canonica = new URL(Astro.url.pathname, Astro.site);
 
 // Os ícones do navegador e da tela inicial do celular saem da mesma logo, no build.

@@ -56,7 +56,8 @@ public/                 arquivos servidos sem processamento, como favicon e imag
 
 ## Matérias
 
-- Cada matéria é um arquivo `AAAA-MM-DD-slug.md` em `src/content/materias/`, e a data do nome é a mesma do campo `publicadoEm`.
+- Cada matéria é um arquivo `AAAA-MM-DD-slug.md` em `src/content/materias/`, e a data do nome é a mesma do campo `publicadoEm` no horário de Brasília.
+- O `publicadoEm` traz data, hora e fuso e repete o horário em que o vídeo horizontal vai ao ar no YouTube. O build só publica matérias cujo horário já passou, então uma matéria pode entrar na `main` antes da hora.
 - O build ignora arquivos com prefixo `_`. O `_modelo.md` é o ponto de partida de toda matéria nova.
 - Os metadados obrigatórios estão no esquema de `src/content.config.ts`, e o build falha quando algum falta. Consulte o esquema em vez de presumir os campos.
 - A URL de uma matéria é `/AAAA/MM/slug/` e nunca muda depois da publicação.
