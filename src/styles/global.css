@@ -1,0 +1,197 @@
+/* Estilos de base. Cores, espaços e tipos vêm sempre dos tokens. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bgColor-default);
+  color: var(--fgColor-default);
+  font-family: var(--fontStack-sansSerif);
+  font-size: var(--text-body-size-large);
+  line-height: var(--base-text-lineHeight-normal);
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fontStack-sansSerifDisplay);
+  line-height: var(--base-text-lineHeight-tight);
+  text-wrap: balance;
+  margin: 0;
+}
+
+a {
+  color: var(--fgColor-link);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: var(--borderWidth-thick);
+}
+
+:focus-visible {
+  outline: var(--focus-outline-width) solid var(--focus-outlineColor);
+  outline-offset: var(--base-size-2);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estrutura */
+
+.container {
+  width: 100%;
+  max-width: var(--carcara-largura-pagina);
+  margin-inline: auto;
+  padding-inline: max(var(--base-size-16), env(safe-area-inset-left, 0px));
+}
+
+.leitura {
+  max-width: var(--carcara-largura-leitura);
+}
+
+main {
+  padding-block: var(--base-size-32) var(--base-size-64);
+}
+
+.pular {
+  position: absolute;
+  left: var(--base-size-8);
+  top: var(--base-size-8);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bgColor-emphasis);
+  color: var(--fgColor-onEmphasis);
+  border-radius: var(--borderRadius-medium);
+  transform: translateY(-200%);
+}
+
+.pular:focus {
+  transform: none;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Rótulo em caixa alta, usado para editorias e seções */
+
+.rotulo {
+  display: inline-block;
+  font-family: var(--fontStack-monospace);
+  font-size: var(--text-caption-size);
+  font-weight: var(--base-text-weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fgColor-accent);
+  text-decoration: none;
+}
+
+a.rotulo:hover {
+  text-decoration: underline;
+}
+
+.secao-titulo {
+  font-size: var(--text-title-size-small);
+  padding-block-end: var(--space-sm);
+  margin-block-end: var(--space-lg);
+  border-bottom: var(--borderWidth-thick) solid var(--fgColor-default);
+}
+
+.grade {
+  display: grid;
+  gap: var(--base-size-32) var(--base-size-24);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+}
+
+/* Texto corrido das matérias e dos documentos */
+
+.prosa {
+  font-size: var(--carcara-texto-leitura);
+  line-height: var(--base-text-lineHeight-loose);
+  overflow-wrap: break-word;
+}
+
+/* Links longos, como endereços completos, quebram em vez de alargar a página no celular. */
+.prosa a {
+  overflow-wrap: anywhere;
+}
+
+.prosa > * {
+  margin-block: 0 var(--base-size-20);
+}
+
+.prosa h2 {
+  font-size: var(--text-title-size-medium);
+  margin-block: var(--base-size-40) var(--base-size-16);
+}
+
+.prosa h3 {
+  font-size: var(--base-text-size-md);
+  margin-block: var(--base-size-32) var(--base-size-12);
+}
+
+.prosa ul,
+.prosa ol {
+  padding-inline-start: var(--base-size-24);
+}
+
+.prosa li + li {
+  margin-block-start: var(--space-sm);
+}
+
+.prosa blockquote {
+  margin-inline: 0;
+  padding-inline-start: var(--base-size-16);
+  border-inline-start: var(--borderWidth-thicker) solid var(--borderColor-accent-emphasis);
+  color: var(--fgColor-muted);
+}
+
+.prosa code {
+  font-family: var(--fontStack-monospace);
+  font-size: 0.9em;
+  padding: var(--space-xxs) var(--space-xs);
+  background: var(--bgColor-muted);
+  border-radius: var(--borderRadius-small);
+}
+
+.prosa table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-body-size-large);
+  font-variant-numeric: tabular-nums;
+  display: block;
+  overflow-x: auto;
+}
+
+.prosa th,
+.prosa td {
+  text-align: start;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: var(--borderWidth-default) solid var(--borderColor-default);
+}
+
+.prosa th {
+  font-weight: var(--base-text-weight-semibold);
+  border-bottom-color: var(--borderColor-emphasis);
+}
+
+.prosa hr {
+  border: 0;
+  border-top: var(--borderWidth-default) solid var(--borderColor-default);
+  margin-block: var(--base-size-40);
+}

@@ -1,0 +1,191 @@
+---
+import Base from './Base.astro';
+import LinkVideo from '../components/LinkVideo.astro';
+import { EDITORIAS } from '../lib/editorias';
+import { urlAbsoluta, urlDoMarkdown } from '../lib/indices';
+import { organizacao, versoesDaLogo } from '../lib/marca';
+import { dataIso, formatarDataHora, urlDaMateria, type Materia } from '../lib/materias';
+import { SITE, idDoVideo } from '../lib/site';
+
+interface Props {
+  materia: Materia;
+}
+
+const { materia } = Astro.props;
+const { titulo, linhaFina, editoria, publicadoEm, atualizadoEm, autoria, video, fontes, correcoes } =
+  materia.data;
+
+// Dados estruturados da matéria: NewsArticle com o vídeo e as fontes citadas, mais a trilha de navegação.
+const site = Astro.site!;
+const endereco = urlAbsoluta(urlDaMateria(materia), site);
+const { quadrada } = await versoesDaLogo();
+const editora = await organizacao(site);
+const identificadorDoVideo = idDoVideo(video);
+const autoriaInstitucional = autoria === SITE.nome || /^reda[cç][aã]o/i.test(autoria);
+const dadosEstruturados = [
+  {
+    '@type': 'NewsArticle',
+    '@id': `${endereco}#materia`,
+    headline: titulo,
+    description: linhaFina,
+    url: endereco,
+    mainEntityOfPage: endereco,
+    datePublished: publicadoEm.toISOString(),
+    dateModified: (atualizadoEm ?? publicadoEm).toISOString(),
+    inLanguage: SITE.idioma,
+    articleSection: EDITORIAS[editoria],
+    isAccessibleForFree: true,
+    author: autoriaInstitucional
+      ? { '@type': 'Organization', name: autoria, url: urlAbsoluta('/', site) }
+      : { '@type': 'Person', name: autoria },
+    publisher: { '@id': editora['@id'] },
+    // A capa do vídeo, em 1280 x 720, atende ao tamanho que o Google pede para notícias; a logo fica de reserva.
+    image: [
+      ...(identificadorDoVideo ? [`https://i.ytimg.com/vi/${identificadorDoVideo}/maxresdefault.jpg`] : []),
+      urlAbsoluta(quadrada, site),
+    ],
+    citation: fontes.map(({ nome, url }) => ({ '@type': 'CreativeWork', name: nome, url })),
+    ...(identificadorDoVideo && {
+      video: {
+        '@type': 'VideoObject',
+        name: titulo,
+        description: linhaFina,
+        uploadDate: publicadoEm.toISOString(),
+        thumbnailUrl: `https://i.ytimg.com/vi/${identificadorDoVideo}/hqdefault.jpg`,
+        url: video,
+        embedUrl: `https://www.youtube.com/embed/${identificadorDoVideo}`,
+      },
+    }),
+  },
+  editora,
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: urlAbsoluta('/', site) },
+      { '@type': 'ListItem', position: 2, name: EDITORIAS[editoria], item: urlAbsoluta(`/${editoria}/`, site) },
+      { '@type': 'ListItem', position: 3, name: titulo, item: endereco },
+    ],
+  },
+];
+---
+
+<Base titulo={titulo} descricao={linhaFina} tipo="article" dadosEstruturados={dadosEstruturados}>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={publicadoEm.toISOString()} />
+    <meta property="article:modified_time" content={(atualizadoEm ?? publicadoEm).toISOString()} />
+    <meta property="article:section" content={EDITORIAS[editoria]} />
+    <link rel="alternate" type="text/markdown" title="Versão em Markdown" href={urlDoMarkdown(materia)} />
+  </Fragment>
+  <article class="container materia">
+    <header class="materia__cabecalho leitura">
+      <a class="rotulo" href={`/${editoria}/`}>{EDITORIAS[editoria]}</a>
+      <h1 class="materia__titulo">{titulo}</h1>
+      <p class="materia__linha-fina">{linhaFina}</p>
+      <p class="materia__assinatura">
+        Por {autoria} · <time datetime={dataIso(publicadoEm)}>{formatarDataHora(publicadoEm)}</time>
+        {atualizadoEm && <> · Atualizado em <time datetime={dataIso(atualizadoEm)}>{formatarDataHora(atualizadoEm)}</time></>}
+      </p>
+      <LinkVideo url={video} />
+    </header>
+
+    <div class="prosa leitura">
+      <slot />
+    </div>
+
+    <footer class="materia__rodape leitura">
+      {
+        correcoes.length > 0 && (
+          <section class="correcoes" aria-labelledby="titulo-correcoes">
+            <h2 id="titulo-correcoes" class="materia__subtitulo">Correções</h2>
+            <ul>
+              {correcoes.map(({ data, descricao }) => (
+                <li>
+                  <time datetime={dataIso(data)}>{formatarDataHora(data)}</time>: {descricao}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+      <section aria-labelledby="titulo-fontes">
+        <h2 id="titulo-fontes" class="materia__subtitulo">Fontes</h2>
+        <ul class="fontes">
+          {
+            fontes.map(({ nome, url }) => (
+              <li>
+                <a href={url} rel="noopener">{nome}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .materia__cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-block-end: var(--base-size-40);
+  }
+
+  .materia__titulo {
+    font-size: clamp(var(--base-text-size-xl), 5vw, var(--base-text-size-2xl));
+    letter-spacing: -0.02em;
+  }
+
+  .materia__linha-fina {
+    margin: 0;
+    font-size: var(--text-subtitle-size);
+    line-height: var(--text-subtitle-lineHeight);
+    color: var(--fgColor-muted);
+  }
+
+  .materia__assinatura {
+    margin: 0 0 var(--space-sm);
+    font-size: var(--text-body-size-medium);
+    color: var(--fgColor-muted);
+  }
+
+  .materia__rodape {
+    display: flex;
+    flex-direction: column;
+    gap: var(--base-size-32);
+    margin-block-start: var(--base-size-48);
+    padding-block-start: var(--base-size-24);
+    border-top: var(--borderWidth-default) solid var(--borderColor-default);
+  }
+
+  .materia__subtitulo {
+    font-family: var(--fontStack-monospace);
+    font-size: var(--text-caption-size);
+    font-weight: var(--base-text-weight-medium);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fgColor-muted);
+    margin-block-end: var(--space-md);
+  }
+
+  .materia__rodape ul {
+    margin: 0;
+    padding-inline-start: var(--base-size-20);
+  }
+
+  .materia__rodape li + li {
+    margin-block-start: var(--space-sm);
+  }
+
+  .correcoes {
+    padding: var(--space-lg);
+    background: var(--bgColor-attention-muted);
+    border-inline-start: var(--borderWidth-thicker) solid var(--borderColor-attention-emphasis);
+    border-radius: var(--borderRadius-small);
+  }
+
+  .correcoes .materia__subtitulo {
+    color: var(--fgColor-attention);
+  }
+</style>

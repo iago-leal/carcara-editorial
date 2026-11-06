@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import CartaoMateria from '../components/CartaoMateria.astro';
+import { organizacao } from '../lib/marca';
+import { materiasPublicadas } from '../lib/materias';
+import { SITE } from '../lib/site';
+
+const [manchete, ...recentes] = await materiasPublicadas();
+const editora = await organizacao(Astro.site!);
+const dadosEstruturados = [
+  {
+    '@type': 'WebSite',
+    '@id': new URL('/#site', Astro.site).href,
+    name: SITE.nome,
+    description: SITE.descricao,
+    url: new URL('/', Astro.site).href,
+    inLanguage: SITE.idioma,
+    publisher: { '@id': editora['@id'] },
+  },
+  editora,
+];
+---
+
+<Base descricao={SITE.descricao} dadosEstruturados={dadosEstruturados}>
+  <div class="container">
+    <h1 class="visualmente-oculto">Carcará Editorial</h1>
+
+    {
+      manchete ? (
+        <>
+          <CartaoMateria materia={manchete} destaque />
+          {recentes.length > 0 && (
+            <section aria-labelledby="titulo-recentes">
+              <h2 id="titulo-recentes" class="secao-titulo">Mais recentes</h2>
+              <div class="grade">
+                {recentes.map((materia) => (
+                  <CartaoMateria materia={materia} />
+                ))}
+              </div>
+            </section>
+          )}
+        </>
+      ) : (
+        <section class="aviso leitura" aria-labelledby="titulo-aviso">
+          <p class="rotulo">Em breve</p>
+          <h2 id="titulo-aviso">As primeiras matérias estão a caminho</h2>
+          <p>
+            O Carcará Editorial explica política, economia e tecnologia com dados públicos de fontes
+            oficiais, como o IBGE, o Banco Central, o Tesouro Nacional e o Tribunal Superior Eleitoral.
+            Enquanto as matérias não chegam, os vídeos estão no <a href="https://www.youtube.com/@carcara.editorial" rel="noopener">YouTube</a> e no <a href="https://www.instagram.com/carcara.editorial/" rel="noopener">Instagram</a>.
+          </p>
+        </section>
+      )
+    }
+
+    {/* Bloco exigido pela verificação OAuth do Google: descreve a ferramenta e aponta a política de privacidade. */}
+    <section class="ferramenta leitura" id="ferramenta" aria-labelledby="titulo-ferramenta">
+      <h2 id="titulo-ferramenta" class="ferramenta__titulo">A ferramenta carcara-editorial-canal</h2>
+      <p>
+        O <strong>carcara-editorial-canal</strong> é um cliente interno dos Serviços de API do YouTube,
+        usado apenas pelo responsável pelo canal para enviar e agendar os vídeos do Carcará Editorial,
+        manter os metadados deles e ler as métricas de desempenho do próprio canal. Ele não é oferecido
+        ao público e não acessa outros canais.
+        O tratamento de dados está descrito na <a href="/privacidade.html">Política de Privacidade</a>, e as condições de uso, nos <a href="/termos.html">Termos de Uso</a>.
+        Quem usa a ferramenta concorda com os <a href="https://www.youtube.com/t/terms" rel="noopener">Termos de Serviço do YouTube</a>.
+      </p>
+      <p lang="en">
+        <strong>carcara-editorial-canal</strong> is an internal YouTube API Services client, used only
+        by the channel owner to upload and schedule Carcará Editorial's videos, maintain their metadata
+        and read the channel's own performance metrics. It is not offered to the public and does not
+        access any other channel.
+        How data is handled is described in the <a href="/privacidade.html#en">Privacy Policy</a>, and the conditions of use in the <a href="/termos.html#en">Terms of Use</a>.
+        Anyone using the tool agrees to the <a href="https://www.youtube.com/t/terms" rel="noopener">YouTube Terms of Service</a>.
+      </p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .aviso {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding-block: var(--base-size-24) var(--base-size-40);
+    border-top: var(--borderWidth-thicker) solid var(--borderColor-accent-emphasis);
+  }
+
+  .aviso h2 {
+    font-size: clamp(var(--base-text-size-lg), 4vw, var(--base-text-size-xl));
+  }
+
+  .aviso p {
+    margin: 0;
+  }
+
+  .aviso p:last-child {
+    font-size: var(--carcara-texto-leitura);
+    line-height: var(--base-text-lineHeight-relaxed);
+    color: var(--fgColor-muted);
+  }
+
+  .ferramenta {
+    margin-block-start: var(--base-size-64);
+    padding: var(--base-size-20);
+    background: var(--bgColor-muted);
+    border: var(--borderWidth-default) solid var(--borderColor-default);
+    border-radius: var(--borderRadius-medium);
+    font-size: var(--text-body-size-medium);
+    color: var(--fgColor-muted);
+  }
+
+  .ferramenta__titulo {
+    font-size: var(--text-title-size-small);
+    color: var(--fgColor-default);
+    margin-block-end: var(--space-md);
+  }
+
+  .ferramenta p {
+    margin: 0;
+  }
+
+  .ferramenta p + p {
+    margin-block-start: var(--space-md);
+  }
+</style>

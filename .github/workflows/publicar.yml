@@ -1,0 +1,61 @@
+name: Publicar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  # A cada 15 minutos, fora da virada da hora, para pôr no ar as matérias que
+  # chegaram ao horário do vídeo. O GitHub pode atrasar essas execuções.
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      publicar: ${{ steps.decisao.outputs.publicar }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      # Pull request só testa o build. Push e disparo manual publicam sempre.
+      # A execução agendada publica só se o site no ar estiver desatualizado.
+      - id: decisao
+        env:
+          EVENTO: ${{ github.event_name }}
+        run: |
+          case "$EVENTO" in
+            pull_request) echo "publicar=false" >> "$GITHUB_OUTPUT" ;;
+            schedule) node scripts/materias-mudaram.mjs ;;
+            *) echo "publicar=true" >> "$GITHUB_OUTPUT" ;;
+          esac
+      - if: steps.decisao.outputs.publicar == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    if: needs.build.outputs.publicar == 'true' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

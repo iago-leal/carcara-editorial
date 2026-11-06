@@ -1,0 +1,91 @@
+---
+// Molde das páginas institucionais bilíngues, como privacidade e termos.
+import Base from './Base.astro';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+  vigencia: string;
+}
+
+const { titulo, descricao, vigencia } = Astro.props;
+---
+
+<Base titulo={titulo} descricao={descricao}>
+  <div class="container documento">
+    <header class="documento__cabecalho leitura">
+      <p class="rotulo">Documento</p>
+      <h1>{titulo}</h1>
+      <p class="documento__vigencia">{vigencia}</p>
+      <nav class="documento__idiomas" aria-label="Idioma / Language">
+        <a href="#pt">Português</a>
+        <a href="#en">English</a>
+      </nav>
+    </header>
+    <div class="prosa leitura">
+      <slot />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .documento__cabecalho {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-block-end: var(--base-size-40);
+    padding-block-end: var(--base-size-24);
+    border-bottom: var(--borderWidth-default) solid var(--borderColor-default);
+  }
+
+  .documento__cabecalho h1 {
+    font-size: var(--text-title-size-large);
+  }
+
+  .documento__vigencia {
+    margin: 0;
+    font-size: var(--text-body-size-medium);
+    color: var(--fgColor-muted);
+  }
+
+  .documento__idiomas {
+    display: flex;
+    gap: var(--space-lg);
+    font-size: var(--text-body-size-medium);
+  }
+
+  .documento :global(.bloco-idioma) {
+    scroll-margin-top: var(--base-size-24);
+  }
+
+  .documento :global(.idioma) {
+    display: inline-block;
+    margin-block-end: var(--space-sm);
+    font-family: var(--fontStack-monospace);
+    font-size: var(--text-caption-size);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fgColor-muted);
+  }
+
+  .documento :global(.resumo) {
+    padding: var(--space-lg);
+    background: var(--bgColor-muted);
+    border-inline-start: var(--borderWidth-thicker) solid var(--borderColor-accent-emphasis);
+    border-radius: var(--borderRadius-small);
+  }
+
+  .documento :global(.resumo p) {
+    margin: 0;
+  }
+
+  .documento :global(article h2) {
+    font-size: var(--text-title-size-small);
+    margin-block: var(--base-size-32) var(--space-md);
+  }
+
+  .documento :global(article p),
+  .documento :global(article ul) {
+    margin-block: 0 var(--space-lg);
+  }
+</style>

@@ -1,0 +1,55 @@
+/*
+  Paleta do Carcará nos tokens de cor do Primer.
+  Este é o único arquivo com cores literais. Os pares de texto e fundo atendem
+  ao contraste AA da WCAG 2.1 nos dois temas.
+*/
+:root {
+  color-scheme: light;
+
+  --bgColor-default: #fbf8f5;
+  --bgColor-muted: #f2ece6;
+  --bgColor-emphasis: #1a1714;
+  --bgColor-accent-emphasis: #c2541a;
+  --bgColor-attention-muted: #ede5d8;
+
+  --fgColor-default: #1a1714;
+  --fgColor-muted: #5e554d;
+  --fgColor-onEmphasis: #ffffff;
+  --fgColor-accent: #a84615;
+  --fgColor-link: var(--fgColor-accent);
+  --fgColor-attention: #8a5a00;
+
+  --borderColor-default: #e2d9d0;
+  --borderColor-muted: #ece4dc;
+  --borderColor-emphasis: #5e554d;
+  --borderColor-accent-emphasis: #c2541a;
+  --borderColor-attention-emphasis: #8a5a00;
+
+  --focus-outlineColor: #a84615;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bgColor-default: #0a0a0a;
+    --bgColor-muted: #151311;
+    --bgColor-emphasis: #f5f2ee;
+    --bgColor-accent-emphasis: #ff904d;
+    --bgColor-attention-muted: #2f2618;
+
+    --fgColor-default: #f5f2ee;
+    --fgColor-muted: #b3aaa1;
+    --fgColor-onEmphasis: #0a0a0a;
+    --fgColor-accent: #ff904d;
+    --fgColor-attention: #ffc766;
+
+    --borderColor-default: #2a2520;
+    --borderColor-muted: #1f1b17;
+    --borderColor-emphasis: #b3aaa1;
+    --borderColor-accent-emphasis: #ff904d;
+    --borderColor-attention-emphasis: #ffc766;
+
+    --focus-outlineColor: #ff904d;
+  }
+}

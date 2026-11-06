@@ -1,0 +1,21 @@
+---
+import { render } from 'astro:content';
+import Materia from '../../../../layouts/Materia.astro';
+import { materiasPublicadas, partesDaUrl, type Materia as MateriaDaColecao } from '../../../../lib/materias';
+
+export async function getStaticPaths() {
+  const materias = await materiasPublicadas();
+  return materias.map((materia) => ({ params: partesDaUrl(materia), props: { materia } }));
+}
+
+interface Props {
+  materia: MateriaDaColecao;
+}
+
+const { materia } = Astro.props;
+const { Content } = await render(materia);
+---
+
+<Materia materia={materia}>
+  <Content />
+</Materia>

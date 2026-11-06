@@ -1,0 +1,77 @@
+---
+import { EDITORIAS } from '../lib/editorias';
+import { dataIso, formatarData, urlDaMateria, type Materia } from '../lib/materias';
+
+interface Props {
+  materia: Materia;
+  destaque?: boolean;
+}
+
+const { materia, destaque = false } = Astro.props;
+const { titulo, linhaFina, editoria, publicadoEm } = materia.data;
+const Titulo = destaque ? 'h2' : 'h3';
+---
+
+<article class:list={['cartao', { 'cartao--destaque': destaque }]}>
+  <a class="rotulo" href={`/${editoria}/`}>{EDITORIAS[editoria]}</a>
+  <Titulo class="cartao__titulo">
+    <a href={urlDaMateria(materia)}>{titulo}</a>
+  </Titulo>
+  <p class="cartao__linha-fina">{linhaFina}</p>
+  <time class="cartao__data" datetime={dataIso(publicadoEm)}>{formatarData(publicadoEm)}</time>
+</article>
+
+<style>
+  .cartao {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding-block-start: var(--space-md);
+    border-top: var(--borderWidth-default) solid var(--borderColor-default);
+  }
+
+  .cartao__titulo {
+    font-size: var(--text-title-size-small);
+    line-height: var(--base-text-lineHeight-snug);
+  }
+
+  .cartao__titulo a {
+    color: var(--fgColor-default);
+    text-decoration: none;
+  }
+
+  .cartao__titulo a:hover {
+    color: var(--fgColor-accent);
+    text-decoration: underline;
+  }
+
+  .cartao__linha-fina {
+    margin: 0;
+    color: var(--fgColor-muted);
+  }
+
+  .cartao__data {
+    font-size: var(--text-body-size-small);
+    color: var(--fgColor-muted);
+  }
+
+  .cartao--destaque {
+    gap: var(--space-md);
+    padding-block: var(--base-size-24) var(--base-size-40);
+    margin-block-end: var(--base-size-40);
+    border-top: var(--borderWidth-thicker) solid var(--borderColor-accent-emphasis);
+    border-bottom: var(--borderWidth-default) solid var(--borderColor-default);
+  }
+
+  .cartao--destaque .cartao__titulo {
+    font-size: clamp(var(--base-text-size-xl), 5vw, var(--base-text-size-2xl));
+    line-height: var(--base-text-lineHeight-tight);
+    letter-spacing: -0.02em;
+    max-width: 24ch;
+  }
+
+  .cartao--destaque .cartao__linha-fina {
+    font-size: var(--text-subtitle-size);
+    max-width: var(--carcara-largura-leitura);
+  }
+</style>

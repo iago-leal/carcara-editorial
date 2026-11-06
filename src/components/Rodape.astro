@@ -1,0 +1,62 @@
+---
+import { SITE } from '../lib/site';
+
+const ano = new Date().getFullYear();
+---
+
+<footer class="rodape">
+  <div class="container rodape__interno">
+    <nav aria-label="Institucional">
+      <ul class="rodape__links">
+        <li><a href="/privacidade.html">Política de Privacidade</a></li>
+        <li><a href="/termos.html">Termos de Uso</a></li>
+        <li><a href="/rss.xml">RSS</a></li>
+        <li><a href={SITE.redes.youtube} rel="noopener me">YouTube</a></li>
+        <li><a href={SITE.redes.instagram} rel="noopener me">Instagram</a></li>
+        <li><a href={SITE.redes.tiktok} rel="noopener me">TikTok</a></li>
+      </ul>
+    </nav>
+    <p class="rodape__assinatura">Carcará Editorial · {ano}</p>
+  </div>
+</footer>
+
+<style>
+  .rodape {
+    border-top: var(--borderWidth-default) solid var(--borderColor-default);
+    background: var(--bgColor-muted);
+    font-size: var(--text-body-size-medium);
+    color: var(--fgColor-muted);
+  }
+
+  .rodape__interno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md) var(--base-size-24);
+    padding-block: var(--base-size-24);
+  }
+
+  .rodape__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rodape__links a {
+    color: var(--fgColor-muted);
+  }
+
+  .rodape__links a:hover {
+    color: var(--fgColor-default);
+  }
+
+  .rodape__assinatura {
+    margin: 0;
+    font-family: var(--fontStack-monospace);
+    font-size: var(--text-caption-size);
+  }
+</style>

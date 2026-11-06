@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import CartaoMateria from '../../components/CartaoMateria.astro';
+import { EDITORIAS, type Editoria } from '../../lib/editorias';
+import { urlAbsoluta } from '../../lib/indices';
+import { materiasPublicadas, urlDaMateria } from '../../lib/materias';
+
+export function getStaticPaths() {
+  return Object.keys(EDITORIAS).map((editoria) => ({ params: { editoria } }));
+}
+
+const editoria = Astro.params.editoria as Editoria;
+const nome = EDITORIAS[editoria];
+const materias = (await materiasPublicadas()).filter((materia) => materia.data.editoria === editoria);
+const descricao = `Matérias de ${nome.toLowerCase()} do Carcará Editorial, com dados de fontes oficiais.`;
+const endereco = urlAbsoluta(`/${editoria}/`, Astro.site!);
+const dadosEstruturados = [
+  {
+    '@type': 'CollectionPage',
+    name: nome,
+    description: descricao,
+    url: endereco,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: materias.map((materia, indice) => ({
+        '@type': 'ListItem',
+        position: indice + 1,
+        url: urlAbsoluta(urlDaMateria(materia), Astro.site!),
+      })),
+    },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: urlAbsoluta('/', Astro.site!) },
+      { '@type': 'ListItem', position: 2, name: nome, item: endereco },
+    ],
+  },
+];
+---
+
+<Base titulo={nome} descricao={descricao} dadosEstruturados={dadosEstruturados}>
+  <div class="container">
+    <header class="editoria__cabecalho">
+      <p class="rotulo">Editoria</p>
+      <h1>{nome}</h1>
+    </header>
+    {
+      materias.length > 0 ? (
+        <div class="grade">
+          {materias.map((materia) => (
+            <CartaoMateria materia={materia} />
+          ))}
+        </div>
+      ) : (
+        <p class="editoria__vazia">Ainda não há matérias publicadas nesta editoria.</p>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .editoria__cabecalho {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-block-end: var(--base-size-32);
+    padding-block-end: var(--space-md);
+    border-bottom: var(--borderWidth-thick) solid var(--fgColor-default);
+  }
+
+  .editoria__cabecalho h1 {
+    font-size: var(--text-title-size-large);
+  }
+
+  .editoria__vazia {
+    color: var(--fgColor-muted);
+  }
+</style>

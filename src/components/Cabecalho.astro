@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/marca/carcara.png';
+import { EDITORIAS } from '../lib/editorias';
+
+const caminho = Astro.url.pathname;
+---
+
+<header class="cabecalho">
+  <div class="container cabecalho__interno">
+    <a class="marca" href="/">
+      <Image class="marca__logo" src={logo} alt="" width={48} height={48} densities={[1, 2, 3]} loading="eager" />
+      <span class="marca__texto">
+        <span class="marca__nome">Carcará Editorial</span>
+        <span class="marca__slogan">As notícias explicadas <strong>pelos números.</strong></span>
+      </span>
+    </a>
+    <nav aria-label="Editorias">
+      <ul class="editorias">
+        {
+          Object.entries(EDITORIAS).map(([chave, nome]) => (
+            <li>
+              <a
+                href={`/${chave}/`}
+                aria-current={caminho.startsWith(`/${chave}/`) ? 'page' : undefined}
+              >
+                {nome}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .cabecalho {
+    border-bottom: var(--borderWidth-default) solid var(--borderColor-default);
+    background: var(--bgColor-default);
+  }
+
+  .cabecalho__interno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md) var(--base-size-24);
+    padding-block: var(--space-lg);
+  }
+
+  .marca {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    color: var(--fgColor-default);
+    text-decoration: none;
+  }
+
+  /* A logo tem fundo escuro próprio; o recorte redondo repete o do perfil no YouTube. */
+  .marca__logo {
+    width: var(--base-size-48);
+    height: var(--base-size-48);
+    border-radius: var(--borderRadius-full);
+    box-shadow: 0 0 0 var(--borderWidth-thin) var(--borderColor-default);
+    flex-shrink: 0;
+  }
+
+  .marca__texto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+  }
+
+  .marca__nome {
+    font-size: var(--text-title-size-medium);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: var(--base-text-lineHeight-tight);
+  }
+
+  /* Mesmo desenho do banner do canal: frase discreta, com "pelos números." em destaque. */
+  .marca__slogan {
+    font-size: var(--text-body-size-medium);
+    line-height: var(--base-text-lineHeight-tight);
+    color: var(--fgColor-muted);
+  }
+
+  .marca__slogan strong {
+    font-weight: var(--base-text-weight-semibold);
+    color: var(--fgColor-accent);
+  }
+
+  .editorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .editorias a {
+    display: inline-block;
+    padding-block: var(--space-xs);
+    font-weight: var(--base-text-weight-medium);
+    color: var(--fgColor-muted);
+    text-decoration: none;
+    border-bottom: var(--borderWidth-thick) solid transparent;
+  }
+
+  .editorias a:hover {
+    color: var(--fgColor-default);
+  }
+
+  .editorias a[aria-current='page'] {
+    color: var(--fgColor-default);
+    border-bottom-color: var(--borderColor-accent-emphasis);
+  }
+</style>

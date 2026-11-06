@@ -1,30 +1,16 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Termos de Uso · Carcará Editorial</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-<div class="wrap">
-  <header>
-    <span class="eyebrow">Carcará Editorial · jornalismo de dados</span>
-    <h1>Termos de Uso</h1>
-    <p class="meta">Vigente desde 29 de outubro de 2026 · Effective October 29, 2026</p>
-    <nav class="lang" aria-label="Navegação / Navigation">
-      <a href="index.html">Início · Home</a>
-      <a href="#pt">Português</a>
-      <a href="#en">English</a>
-      <a href="privacidade.html">Política de Privacidade · Privacy Policy</a>
-    </nav>
-  </header>
+---
+import Documento from '../layouts/Documento.astro';
+---
 
-  <section class="lang-block" id="pt" lang="pt-BR">
-    <span class="lang-tag">Português</span>
+<Documento
+  titulo="Termos de Uso"
+  descricao="Condições de uso da ferramenta carcara-editorial-canal, cliente interno dos Serviços de API do YouTube."
+  vigencia="Vigente desde 29 de outubro de 2026 · Effective October 29, 2026"
+>
+  <section class="bloco-idioma" id="pt" lang="pt-BR">
+    <span class="idioma">Português</span>
 
-    <div class="summary">
+    <div class="resumo">
       <p>Ao usar a ferramenta <strong>carcara-editorial-canal</strong>, você concorda com os <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">Termos de Serviço do YouTube</a>.</p>
     </div>
 
@@ -35,7 +21,7 @@
 
     <article>
       <h2>Serviços de API do YouTube</h2>
-      <p>A ferramenta usa os Serviços de API do YouTube. Quem a usa concorda com os <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">Termos de Serviço do YouTube</a>, e os dados tratados pelo Google seguem a <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a>. O tratamento de dados pela própria ferramenta está descrito na <a href="privacidade.html">Política de Privacidade do Carcará Editorial</a>.</p>
+      <p>A ferramenta usa os Serviços de API do YouTube. Quem a usa concorda com os <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">Termos de Serviço do YouTube</a>, e os dados tratados pelo Google seguem a <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a>. O tratamento de dados pela própria ferramenta está descrito na <a href="/privacidade.html">Política de Privacidade do Carcará Editorial</a>.</p>
     </article>
 
     <article>
@@ -65,10 +51,10 @@
 
   <hr>
 
-  <section class="lang-block" id="en" lang="en">
-    <span class="lang-tag">English</span>
+  <section class="bloco-idioma" id="en" lang="en">
+    <span class="idioma">English</span>
 
-    <div class="summary">
+    <div class="resumo">
       <p>By using the <strong>carcara-editorial-canal</strong> tool, you agree to be bound by the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a>.</p>
     </div>
 
@@ -79,7 +65,7 @@
 
     <article>
       <h2>YouTube API Services</h2>
-      <p>The tool uses YouTube API Services. Anyone using it agrees to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a>, and data processed by Google is subject to the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. How the tool itself handles data is described in the <a href="privacidade.html#en">Carcará Editorial Privacy Policy</a>.</p>
+      <p>The tool uses YouTube API Services. Anyone using it agrees to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a>, and data processed by Google is subject to the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. How the tool itself handles data is described in the <a href="/privacidade.html#en">Carcará Editorial Privacy Policy</a>.</p>
     </article>
 
     <article>
@@ -106,8 +92,4 @@
       <p>Questions can be sent by direct message to <a href="https://www.instagram.com/carcara.editorial/" target="_blank" rel="noopener">@carcara.editorial</a> on Instagram or through the contact details on the channel's “About” page. Changes to these terms will be posted on this page with a new effective date.</p>
     </article>
   </section>
-
-  <footer>Carcará Editorial · 2026</footer>
-</div>
-</body>
-</html>
+</Documento>
