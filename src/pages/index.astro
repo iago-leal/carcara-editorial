@@ -1,12 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
 import CartaoMateria from '../components/CartaoMateria.astro';
+import { organizacao } from '../lib/marca';
 import { materiasPublicadas } from '../lib/materias';
+import { SITE } from '../lib/site';
 
 const [manchete, ...recentes] = await materiasPublicadas();
+const editora = await organizacao(Astro.site!);
+const dadosEstruturados = [
+  {
+    '@type': 'WebSite',
+    '@id': new URL('/#site', Astro.site).href,
+    name: SITE.nome,
+    description: SITE.descricao,
+    url: new URL('/', Astro.site).href,
+    inLanguage: SITE.idioma,
+    publisher: { '@id': editora['@id'] },
+  },
+  editora,
+];
 ---
 
-<Base descricao="Canal brasileiro e independente de jornalismo de dados sobre política, economia e tecnologia, com dados de fontes oficiais.">
+<Base descricao={SITE.descricao} dadosEstruturados={dadosEstruturados}>
   <div class="container">
     <h1 class="visualmente-oculto">Carcará Editorial</h1>
 

@@ -63,6 +63,13 @@ public/                 arquivos servidos sem processamento, como favicon e imag
 - A URL de uma matéria é `/AAAA/MM/slug/` e nunca muda depois da publicação.
 - Toda matéria derivada de um vídeo traz o link para ele no YouTube.
 
+## Buscadores e agentes de IA
+
+- O site é feito para ser lido por buscadores e por agentes de IA. Toda página usa HTML semântico, com um único `h1`, e declara título, descrição e endereço canônico.
+- As páginas publicam dados estruturados schema.org em JSON-LD: `NewsArticle` nas matérias, `NewsMediaOrganization` e `WebSite` na capa, e a trilha de navegação.
+- O `sitemap.xml`, o `robots.txt`, o `llms.txt`, o `llms-full.txt`, o `materias.json`, o RSS e a versão `.md` de cada matéria saem da coleção de matérias no build. Uma página ou um campo novo entra nesses índices no mesmo pull request.
+- O `robots.txt` não bloqueia buscadores nem agentes de IA.
+
 ## Invariantes
 
 - As URLs `/privacidade.html` e `/termos.html` não mudam, porque estão registradas na verificação OAuth do Google.

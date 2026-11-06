@@ -1,4 +1,6 @@
 ---
+import { SITE } from '../lib/site';
+
 const ano = new Date().getFullYear();
 ---
 
@@ -9,8 +11,9 @@ const ano = new Date().getFullYear();
         <li><a href="/privacidade.html">Política de Privacidade</a></li>
         <li><a href="/termos.html">Termos de Uso</a></li>
         <li><a href="/rss.xml">RSS</a></li>
-        <li><a href="https://www.youtube.com/@carcara.editorial" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.instagram.com/carcara.editorial/" rel="noopener">Instagram</a></li>
+        <li><a href={SITE.redes.youtube} rel="noopener me">YouTube</a></li>
+        <li><a href={SITE.redes.instagram} rel="noopener me">Instagram</a></li>
+        <li><a href={SITE.redes.tiktok} rel="noopener me">TikTok</a></li>
       </ul>
     </nav>
     <p class="rodape__assinatura">Carcará Editorial · {ano}</p>

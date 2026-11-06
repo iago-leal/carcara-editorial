@@ -2,7 +2,10 @@
 import Base from './Base.astro';
 import LinkVideo from '../components/LinkVideo.astro';
 import { EDITORIAS } from '../lib/editorias';
-import { dataIso, formatarDataHora, type Materia } from '../lib/materias';
+import { urlAbsoluta, urlDoMarkdown } from '../lib/indices';
+import { organizacao, versoesDaLogo } from '../lib/marca';
+import { dataIso, formatarDataHora, urlDaMateria, type Materia } from '../lib/materias';
+import { SITE, idDoVideo } from '../lib/site';
 
 interface Props {
   materia: Materia;
@@ -11,9 +14,68 @@ interface Props {
 const { materia } = Astro.props;
 const { titulo, linhaFina, editoria, publicadoEm, atualizadoEm, autoria, video, fontes, correcoes } =
   materia.data;
+
+// Dados estruturados da matéria: NewsArticle com o vídeo e as fontes citadas, mais a trilha de navegação.
+const site = Astro.site!;
+const endereco = urlAbsoluta(urlDaMateria(materia), site);
+const { quadrada } = await versoesDaLogo();
+const editora = await organizacao(site);
+const identificadorDoVideo = idDoVideo(video);
+const autoriaInstitucional = autoria === SITE.nome || /^reda[cç][aã]o/i.test(autoria);
+const dadosEstruturados = [
+  {
+    '@type': 'NewsArticle',
+    '@id': `${endereco}#materia`,
+    headline: titulo,
+    description: linhaFina,
+    url: endereco,
+    mainEntityOfPage: endereco,
+    datePublished: publicadoEm.toISOString(),
+    dateModified: (atualizadoEm ?? publicadoEm).toISOString(),
+    inLanguage: SITE.idioma,
+    articleSection: EDITORIAS[editoria],
+    isAccessibleForFree: true,
+    author: autoriaInstitucional
+      ? { '@type': 'Organization', name: autoria, url: urlAbsoluta('/', site) }
+      : { '@type': 'Person', name: autoria },
+    publisher: { '@id': editora['@id'] },
+    // A capa do vídeo, em 1280 x 720, atende ao tamanho que o Google pede para notícias; a logo fica de reserva.
+    image: [
+      ...(identificadorDoVideo ? [`https://i.ytimg.com/vi/${identificadorDoVideo}/maxresdefault.jpg`] : []),
+      urlAbsoluta(quadrada, site),
+    ],
+    citation: fontes.map(({ nome, url }) => ({ '@type': 'CreativeWork', name: nome, url })),
+    ...(identificadorDoVideo && {
+      video: {
+        '@type': 'VideoObject',
+        name: titulo,
+        description: linhaFina,
+        uploadDate: publicadoEm.toISOString(),
+        thumbnailUrl: `https://i.ytimg.com/vi/${identificadorDoVideo}/hqdefault.jpg`,
+        url: video,
+        embedUrl: `https://www.youtube.com/embed/${identificadorDoVideo}`,
+      },
+    }),
+  },
+  editora,
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: urlAbsoluta('/', site) },
+      { '@type': 'ListItem', position: 2, name: EDITORIAS[editoria], item: urlAbsoluta(`/${editoria}/`, site) },
+      { '@type': 'ListItem', position: 3, name: titulo, item: endereco },
+    ],
+  },
+];
 ---
 
-<Base titulo={titulo} descricao={linhaFina} tipo="article">
+<Base titulo={titulo} descricao={linhaFina} tipo="article" dadosEstruturados={dadosEstruturados}>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={publicadoEm.toISOString()} />
+    <meta property="article:modified_time" content={(atualizadoEm ?? publicadoEm).toISOString()} />
+    <meta property="article:section" content={EDITORIAS[editoria]} />
+    <link rel="alternate" type="text/markdown" title="Versão em Markdown" href={urlDoMarkdown(materia)} />
+  </Fragment>
   <article class="container materia">
     <header class="materia__cabecalho leitura">
       <a class="rotulo" href={`/${editoria}/`}>{EDITORIAS[editoria]}</a>

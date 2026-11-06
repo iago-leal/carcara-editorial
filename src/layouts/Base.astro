@@ -4,51 +4,59 @@ import '@fontsource/ibm-plex-mono/500.css';
 import '../styles/tokens.css';
 import '../styles/carcara.css';
 import '../styles/global.css';
-import { getImage } from 'astro:assets';
-import logo from '../assets/marca/carcara.png';
 import Cabecalho from '../components/Cabecalho.astro';
 import Rodape from '../components/Rodape.astro';
+import { versoesDaLogo } from '../lib/marca';
+import { SITE, jsonParaScript } from '../lib/site';
 
 interface Props {
   titulo?: string;
   descricao: string;
   tipo?: 'website' | 'article';
+  // Objetos schema.org desta página, publicados em JSON-LD para os buscadores.
+  dadosEstruturados?: object[];
 }
 
-const NOME = 'Carcará Editorial';
-const SLOGAN = 'As notícias explicadas pelos números';
-const { titulo, descricao, tipo = 'website' } = Astro.props;
-const tituloDaAba = titulo ? `${titulo} · ${NOME}` : `${NOME} · ${SLOGAN}`;
+const { titulo, descricao, tipo = 'website', dadosEstruturados = [] } = Astro.props;
+const tituloDaAba = titulo ? `${titulo} · ${SITE.nome}` : `${SITE.nome} · ${SITE.slogan}`;
 const canonica = new URL(Astro.url.pathname, Astro.site);
-
-// Os ícones do navegador e da tela inicial do celular saem da mesma logo, no build.
-const icone = await getImage({ src: logo, width: 32, height: 32, format: 'png' });
-const iconeApple = await getImage({ src: logo, width: 180, height: 180, format: 'png' });
-const imagemCompartilhamento = await getImage({ src: logo, width: 512, height: 512, format: 'png' });
+const { icone, iconeApple, quadrada } = await versoesDaLogo();
+const imagem = new URL(quadrada, Astro.site);
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang={SITE.idioma}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{tituloDaAba}</title>
     <meta name="description" content={descricao} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href={canonica} />
-    <link rel="icon" href={icone.src} type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href={iconeApple.src} />
-    <link rel="alternate" type="application/rss+xml" title={NOME} href="/rss.xml" />
-    <meta property="og:site_name" content={NOME} />
+    <link rel="icon" href={icone} type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href={iconeApple} />
+    <link rel="alternate" type="application/rss+xml" title={SITE.nome} href="/rss.xml" />
+    <meta property="og:site_name" content={SITE.nome} />
     <meta property="og:type" content={tipo} />
-    <meta property="og:title" content={titulo ?? NOME} />
+    <meta property="og:title" content={titulo ?? SITE.nome} />
     <meta property="og:description" content={descricao} />
     <meta property="og:url" content={canonica} />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:image" content={new URL(imagemCompartilhamento.src, Astro.site)} />
+    <meta property="og:image" content={imagem} />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta property="og:image:alt" content="Logo do Carcará Editorial: cabeça de carcará em laranja, branco e preto" />
+    <meta name="twitter:card" content="summary" />
     <slot name="head" />
+    {
+      dadosEstruturados.length > 0 && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={jsonParaScript({ '@context': 'https://schema.org', '@graph': dadosEstruturados })}
+        />
+      )
+    }
   </head>
   <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
