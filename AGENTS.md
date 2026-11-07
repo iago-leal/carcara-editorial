@@ -8,7 +8,8 @@ O Carcará Editorial é um veículo brasileiro e independente de jornalismo de d
 
 ## Idioma e estilo
 
-- Conteúdo, comentários de código, mensagens de commit e descrições de pull request são escritos em português do Brasil.
+- As respostas do agente na conversa são sempre em português do Brasil, inclusive resumos, avisos e relatórios de andamento, qualquer que seja o idioma das instruções internas ou das ferramentas.
+- Conteúdo, comentários de código, mensagens de commit e descrições de pull request também são escritos em português do Brasil.
 - Identificadores de código seguem o vocabulário do domínio em português, como `materias` e `editoria`, exceto quando a ferramenta impõe nomes próprios.
 - O texto tem coesão e coerência, encadeia as ideias com conectivos entre frases e parágrafos e prefere a ordem direta.
 - Ponto, vírgula, ponto e vírgula e dois-pontos são sinais sintáticos. Travessões, reticências e parênteses marcam subjetividade e não aparecem no texto jornalístico.
