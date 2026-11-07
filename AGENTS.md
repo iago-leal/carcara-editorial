@@ -48,7 +48,7 @@ src/content.config.ts   esquema dos metadados das matérias
 src/pages/              rotas do site
 src/layouts/            moldes de página
 src/components/         componentes reutilizáveis
-src/lib/                funções e constantes compartilhadas, como as editorias
+src/lib/                funções e constantes compartilhadas, como as editorias e os autores
 src/styles/             tokens do Primer, paleta do Carcará e estilos globais
 public/                 arquivos servidos sem processamento, como favicon e imagens
 .github/workflows/      build em todo pull request e publicação a partir da main
@@ -63,6 +63,8 @@ scripts/                scripts auxiliares da publicação
 - Os metadados obrigatórios estão no esquema de `src/content.config.ts`, e o build falha quando algum falta. Consulte o esquema em vez de presumir os campos.
 - A URL de uma matéria é `/AAAA/MM/slug/` e nunca muda depois da publicação.
 - Toda matéria derivada de um vídeo traz o link para ele no YouTube.
+- As matérias de saúde são assinadas pelo médico cadastrado em `src/lib/autores.ts`, com o campo `autor` no lugar de `autoria`. A assinatura segue a Resolução CFM nº 2.336/2023 e traz nome, a palavra MÉDICO, CRM com a UF, especialidade e RQE, além do perfil no Instagram. As demais matérias continuam assinadas pela Redação Carcará Editorial.
+- Nas matérias assinadas pelo médico, o texto não promete resultado, não usa sensacionalismo, não traz depoimento de paciente e não promove marca, produto ou serviço.
 
 ## Buscadores e agentes de IA
 

@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { CHAVES_AUTORES } from './lib/autores';
 import { CHAVES_EDITORIAS } from './lib/editorias';
 
 const HOSTS_DO_YOUTUBE = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtu.be'];
@@ -31,7 +32,11 @@ const materias = defineCollection({
     // Mesmo horário em que o vídeo horizontal vai ao ar no YouTube.
     publicadoEm: dataHora,
     atualizadoEm: dataHora.optional(),
-    autoria: z.string().min(1),
+    // Assinatura em texto, como "Redação Carcará Editorial".
+    autoria: z.string().min(1).optional(),
+    // Chave de um autor de src/lib/autores.ts, no lugar de autoria. As matérias de saúde
+    // levam a do médico, que sai com nome, CRM, especialidade, RQE e Instagram.
+    autor: z.enum(CHAVES_AUTORES).optional(),
     video: linkDoYouTube,
     fontes: z
       .array(z.object({ nome: z.string().min(1), url: z.url() }))
@@ -40,6 +45,9 @@ const materias = defineCollection({
       .array(z.object({ data: dataHora, descricao: z.string().min(1) }))
       .default([]),
     rascunho: z.boolean().default(false),
+  }).refine((dados) => Boolean(dados.autoria) !== Boolean(dados.autor), {
+    message: 'Preencha autoria ou autor, e só um dos dois.',
+    path: ['autoria'],
   }),
 });
 

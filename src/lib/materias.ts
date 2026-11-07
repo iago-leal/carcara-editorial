@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { AUTORES, type Autor } from './autores';
 
 export type Materia = CollectionEntry<'materias'>;
 
@@ -76,4 +77,13 @@ export function formatarDataHora(data: Date) {
 
 export function dataIso(data: Date) {
   return data.toISOString();
+}
+
+// Quem assina a matéria: um autor cadastrado, com a identificação profissional, ou a autoria em texto.
+export function assinaturaDaMateria(materia: Materia): { nome: string; autor?: Autor } {
+  const { autor, autoria } = materia.data;
+  if (autor) {
+    return { nome: AUTORES[autor].nome, autor: AUTORES[autor] };
+  }
+  return { nome: autoria! };
 }
