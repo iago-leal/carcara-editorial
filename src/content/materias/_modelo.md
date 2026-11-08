@@ -9,7 +9,9 @@ linhaFina: Frase que completa o título com o dado ou o contexto mais importante
 editoria: economia # politica, economia ou tecnologia
 publicadoEm: "2026-01-31T18:00:00-03:00"
 # atualizadoEm: "2026-02-01T10:30:00-03:00"
-autoria: Nome de quem assina
+autoria: Redação Carcará Editorial
+# Nas matérias de saúde, troque a linha autoria pela do médico, cadastrado em src/lib/autores.ts:
+# autor: iago-leal
 video: https://www.youtube.com/watch?v=IDENTIFICADOR
 fontes:
   - nome: Nome da fonte oficial e do conjunto de dados
