@@ -4,7 +4,7 @@ linhaFina: Em 2026, a ANS fixou o menor teto desde 2000, fora a pandemia, de 5,1
 editoria: economia
 publicadoEm: "2026-11-10T18:00:00-03:00"
 autor: iago-leal
-video: https://www.youtube.com/watch?v=QnHd0aseWgU
+video: https://www.youtube.com/watch?v=rZUqsGSp5Kc
 fontes:
   - nome: Agência Nacional de Saúde Suplementar (ANS)
     url: https://www.gov.br/ans/pt-br/assuntos/noticias/beneficiario/ans-define-teto-de-5-11-para-reajuste-de-planos-de-saude-individuais-familiares
