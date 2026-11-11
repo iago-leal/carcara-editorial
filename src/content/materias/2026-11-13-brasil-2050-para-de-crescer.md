@@ -13,7 +13,7 @@ fontes:
   - nome: IBGE, Série Relatórios Metodológicos v. 40, Projeções da População, Brasil e Unidades da Federação, Revisão 2024, 3ª edição
     url: https://ftp.ibge.gov.br/Projecao_da_Populacao/Projecao_da_Populacao_2024/Serie_Relatorios_Metotodologicos_v40_Projecoes_da_Populacao_Brasil_e_Unidades_da_Federacao_Revisao_2024_3a_Edicao.pdf
   - nome: Ministério da Previdência Social, Secretaria do RGPS, Projeções Financeiras e Atuariais para o RGPS, Anexo IV.10 do PLDO 2026, abril de 2025
-    url: https://static.poder360.com.br/2025/05/PLDO-2026-15.mai_.2025.pdf
+    url: https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2026/pldo/10-anexo-iv-10-projecoes-atuariais-rgps.pdf
   - nome: Organização das Nações Unidas, World Population Prospects 2024, comunicado de 11/07/2024
     url: https://www.un.org/sustainabledevelopment/blog/2024/07/press-release-wpp2024/
   - nome: IBGE, Censo Demográfico 2022, população residente, SIDRA, tabela 9514
@@ -59,7 +59,7 @@ A primeira fila também encolhe em números absolutos. Ela passa de 147,5 milhõ
 
 ## A razão conta idade, não contribuintes
 
-Essa razão mede idade, e não carteira assinada. O INSS funciona por repartição simples, em que "os trabalhadores em atividade financiam os inativos na expectativa de que, no futuro, outra geração de trabalhadores sustentará a sua inatividade", segundo o [Ministério da Previdência Social](https://static.poder360.com.br/2025/05/PLDO-2026-15.mai_.2025.pdf), no anexo de projeções da Previdência do projeto da Lei de Diretrizes Orçamentárias de 2026. Quantos de fato contribuem depende do emprego formal e do salário, e isso a projeção do IBGE não diz. O Carcará não encontrou uma projeção oficial de contribuintes por beneficiário feita com a revisão de 2024.
+Essa razão mede idade, e não carteira assinada. O INSS funciona por repartição simples, em que "os trabalhadores em atividade financiam os inativos na expectativa de que, no futuro, outra geração de trabalhadores sustentará a sua inatividade", segundo o [Ministério da Previdência Social](https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2026/pldo/10-anexo-iv-10-projecoes-atuariais-rgps.pdf), no anexo de projeções da Previdência do projeto da Lei de Diretrizes Orçamentárias de 2026. Quantos de fato contribuem depende do emprego formal e do salário, e isso a projeção do IBGE não diz. O Carcará não encontrou uma projeção oficial de contribuintes por beneficiário feita com a revisão de 2024.
 
 ## Projeção é projeção
 
