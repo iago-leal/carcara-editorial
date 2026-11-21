@@ -28,18 +28,60 @@ O PL elegeu seis governadores, mais que qualquer outro partido, mas o Republican
 
 O PL elegeu seis governadores, no Paraná, em Santa Catarina, no Rio Grande do Sul, no Rio de Janeiro, em Rondônia e em Roraima. O PSD tem cinco; Republicanos, PT e PP, quatro cada; o PSDB, dois; e MDB e Podemos, um cada.
 
+```grafico
+tipo: barras
+titulo: Governadores eleitos em 2026, por partido
+fonte: TSE, resultados de 1º e 2º turno, consulta de 20/11/2026
+descricao: O PL elegeu seis governadores. O PSD elegeu cinco; Republicanos, PT e PP, quatro cada; o PSDB, dois; Podemos e MDB, um cada.
+casas: 0
+itens:
+  - {rotulo: PL, valor: 6, destaque: true}
+  - {rotulo: PSD, valor: 5}
+  - {rotulo: Republicanos, valor: 4, destaque: true, cor: amarelo}
+  - {rotulo: PT, valor: 4}
+  - {rotulo: PP, valor: 4}
+  - {rotulo: PSDB, valor: 2}
+  - {rotulo: Podemos, valor: 1}
+  - {rotulo: MDB, valor: 1}
+```
+
 A população é a do [Censo 2022](https://sidra.ibge.gov.br/tabela/4714), e o PIB é o de 2023, último ano das [Contas Regionais](https://sidra.ibge.gov.br/tabela/5938), de modo que a comparação usa só participações.
 
-| Partido | Governos | População governada | PIB governado |
-|---|---|---|---|
-| PL | 6 | 23,7% | 28,4% |
-| PSD | 5 | 11,2% | 6,1% |
-| Republicanos | 4 | 35,7% | 44,8% |
-| PT | 4 | 14,5% | 7,7% |
-| PP | 4 | 5,1% | 6,2% |
-| PSDB | 2 | 2,3% | 1,4% |
-| Podemos | 1 | 4,0% | 2,3% |
-| MDB | 1 | 3,5% | 3,1% |
+```grafico
+tipo: barras
+titulo: Parcela da população governada por partido
+fonte: TSE, consulta de 20/11/2026; IBGE, Censo 2022
+descricao: Os governadores do Republicanos governarão 35,7% da população; os do PL, 23,7%; os do PT, 14,5%; os do PSD, 11,2%; os do PP, 5,1%; o do Podemos, 4,0%; o do MDB, 3,5%; e os do PSDB, 2,3%.
+casas: 1
+sufixo: "%"
+itens:
+  - {rotulo: Republicanos, valor: 35.7, destaque: true, cor: amarelo}
+  - {rotulo: PL, valor: 23.7, destaque: true}
+  - {rotulo: PT, valor: 14.5}
+  - {rotulo: PSD, valor: 11.2}
+  - {rotulo: PP, valor: 5.1}
+  - {rotulo: Podemos, valor: 4}
+  - {rotulo: MDB, valor: 3.5}
+  - {rotulo: PSDB, valor: 2.3}
+```
+
+```grafico
+tipo: barras
+titulo: Parcela do PIB de 2023 governada por partido
+fonte: TSE, consulta de 20/11/2026; IBGE, Contas Regionais 2023
+descricao: Os estados do Republicanos somam 44,8% do PIB de 2023; os do PL, 28,4%; os do PT, 7,7%; os do PP, 6,2%; os do PSD, 6,1%; o do MDB, 3,1%; o do Podemos, 2,3%; e os do PSDB, 1,4%.
+casas: 1
+sufixo: "%"
+itens:
+  - {rotulo: Republicanos, valor: 44.8, destaque: true, cor: amarelo}
+  - {rotulo: PL, valor: 28.4, destaque: true}
+  - {rotulo: PT, valor: 7.7}
+  - {rotulo: PP, valor: 6.2}
+  - {rotulo: PSD, valor: 6.1}
+  - {rotulo: MDB, valor: 3.1}
+  - {rotulo: Podemos, valor: 2.3}
+  - {rotulo: PSDB, valor: 1.4}
+```
 
 ## O avanço do PL
 
