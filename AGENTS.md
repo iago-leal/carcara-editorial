@@ -63,6 +63,7 @@ scripts/                scripts auxiliares da publicação
 - Os metadados obrigatórios estão no esquema de `src/content.config.ts`, e o build falha quando algum falta. Consulte o esquema em vez de presumir os campos.
 - A URL de uma matéria é `/AAAA/MM/slug/` e nunca muda depois da publicação.
 - Toda matéria derivada de um vídeo traz o link para ele no YouTube.
+- Toda matéria traz os gráficos-chave do vídeo, em geral dois ou três, num bloco ```grafico com a especificação em YAML (tipos `linha`, `barras` e `cascata`, descritos em `src/lib/graficos.mjs`). O gráfico fica sempre em quadro preto, com as cores do vídeo, nos dois temas, e os números saem do mesmo material da matéria.
 - As matérias de saúde são assinadas pelo médico cadastrado em `src/lib/autores.ts`, com o campo `autor` no lugar de `autoria`. A assinatura segue a Resolução CFM nº 2.336/2023 e traz nome, a palavra MÉDICO, CRM com a UF, especialidade e RQE, além do perfil no Instagram. As demais matérias continuam assinadas pela Redação Carcará Editorial.
 - Nas matérias assinadas pelo médico, o texto não promete resultado, não usa sensacionalismo, não traz depoimento de paciente e não promove marca, produto ou serviço.
 

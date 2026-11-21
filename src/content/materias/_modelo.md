@@ -29,3 +29,17 @@ Os parágrafos seguintes aprofundam o assunto em ordem decrescente de importânc
 ## Intertítulo
 
 Cada dado citado no texto aparece também na lista de fontes do cabeçalho.
+
+Os gráficos-chave do vídeo entram num bloco de código com a linguagem grafico. Os tipos e os campos estão em src/lib/graficos.mjs.
+
+```grafico
+tipo: barras
+titulo: Título do gráfico, com a unidade e o período
+fonte: Nome curto da fonte, como no selo do vídeo
+descricao: Frase que descreve o gráfico e os números principais para leitores de tela.
+casas: 1
+sufixo: "%"
+itens:
+  - {rotulo: Item em destaque, valor: 12.5, destaque: true}
+  - {rotulo: Outro item, valor: 7.3}
+```
