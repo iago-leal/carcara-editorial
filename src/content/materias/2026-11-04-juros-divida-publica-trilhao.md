@@ -26,6 +26,19 @@ fontes:
 
 A dívida pública brasileira custou R$ 1,205 trilhão só de juros nos 12 meses até setembro de 2026, o equivalente a R$ 3,3 bilhões por dia, segundo as [Estatísticas Fiscais do Banco Central](https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202610_Texto_de_estatisticas_fiscais.pdf) divulgadas em 29 de outubro. O valor corresponde a 8,99% do PIB e responde por 94,5% do déficit nominal do setor público, que chegou a R$ 1,275 trilhão, ou 9,51% do PIB. Sem os juros, o déficit seria de R$ 70,1 bilhões, 0,52% do PIB.
 
+```grafico
+tipo: cascata
+titulo: Déficit nominal do setor público em 12 meses, R$ bilhões
+fonte: Banco Central, Estatísticas Fiscais de 29/10/2026, dados de setembro
+descricao: Em 12 meses até setembro de 2026, o setor público teve déficit de R$ 70,1 bilhões antes dos juros. Os juros somaram R$ 1.205,0 bilhões, e o déficit nominal chegou a R$ 1.275,1 bilhões, ou 9,51% do PIB.
+casas: 1
+prefixo: "R$ "
+itens:
+  - {rotulo: Déficit sem juros, valor: 70.1}
+  - {rotulo: Juros da dívida, valor: 1205.0}
+total: {rotulo: Déficit nominal, valor: 1275.1}
+```
+
 O Banco Central contabiliza esses juros por competência, isto é, pelo valor que a dívida acumula a cada mês, tenha sido pago ou não. A conta inclui o governo federal, os estados, os municípios e as estatais.
 
 ## Mais que saúde, educação e Bolsa Família somados
@@ -34,13 +47,21 @@ Dentro do governo federal, os juros superam as principais políticas sociais. Em
 
 Entre as áreas do governo, só a Previdência Social custa mais que os juros. A comparação deixa de fora a função de encargos especiais, que reúne o próprio serviço da dívida e transferências a estados e municípios e não é uma área de política pública.
 
-| Despesa do governo federal em 2025 | Valor |
-|---|---|
-| Previdência Social | R$ 1.103,1 bilhões |
-| Juros da dívida | R$ 867,7 bilhões |
-| Assistência Social | R$ 290,7 bilhões |
-| Saúde | R$ 238,6 bilhões |
-| Educação | R$ 176,0 bilhões |
+```grafico
+tipo: barras
+titulo: Despesa do governo federal em 2025, R$ bilhões
+fonte: Banco Central, Estatísticas Fiscais; Tesouro Nacional, RREO da União 2025
+descricao: Em 2025, o governo federal gastou R$ 1.103,1 bilhões com a Previdência Social, R$ 867,7 bilhões com juros da dívida, R$ 290,7 bilhões com Assistência Social, R$ 238,6 bilhões com Saúde e R$ 176,0 bilhões com Educação. Os juros seguem o critério de competência, e as demais áreas, as despesas empenhadas.
+casas: 1
+prefixo: "R$ "
+larguraRotulo: 220
+itens:
+  - {rotulo: Previdência Social, valor: 1103.1, cor: amarelo}
+  - {rotulo: Juros da dívida, valor: 867.7, destaque: true}
+  - {rotulo: Assistência Social, valor: 290.7}
+  - {rotulo: Saúde, valor: 238.6}
+  - {rotulo: Educação, valor: 176.0}
+```
 
 Os juros seguem o critério de competência do Banco Central, e as demais áreas, as despesas empenhadas no orçamento.
 
@@ -56,16 +77,25 @@ O efeito se agrava porque a dívida também cobra juros sobre juros. Nos 12 mese
 
 O juro não desaparece: vira renda de quem empresta ao governo. Em setembro, segundo o [Relatório Mensal da Dívida](https://www.tesourotransparente.gov.br/publicacoes/relatorio-mensal-da-divida-rmd/2026/9) do Tesouro Nacional, os títulos da dívida pública federal interna, um estoque de R$ 9,04 trilhões, estavam distribuídos assim:
 
-| Detentor dos títulos | Participação |
-|---|---|
-| Instituições financeiras | 31,3% |
-| Fundos de investimento | 22,9% |
-| Previdência aberta, fechada e de servidores | 22,4% |
-| Não residentes | 9,6% |
-| Seguradoras | 3,3% |
-| Tesouro Direto | 3,1% |
-| Governo | 2,6% |
-| Outros | 4,9% |
+```grafico
+tipo: barras
+titulo: Quem detém os títulos da dívida pública federal interna, % do estoque
+fonte: Tesouro Nacional, Relatório Mensal da Dívida de set/2026
+descricao: Dos R$ 9,04 trilhões em títulos da dívida pública federal interna em setembro de 2026, as instituições financeiras detinham 31,3%, os fundos de investimento 22,9% e a previdência aberta, fechada e de servidores 22,4%. Os não residentes tinham 9,6%, as seguradoras 3,3%, o Tesouro Direto 3,1%, o governo 2,6% e outros 4,9%.
+casas: 1
+sufixo: "%"
+larguraRotulo: 270
+altura: 40
+itens:
+  - {rotulo: Instituições financeiras, valor: 31.3, destaque: true}
+  - {rotulo: Fundos de investimento, valor: 22.9}
+  - {rotulo: Fundos de previdência, valor: 22.4}
+  - {rotulo: Não residentes, valor: 9.6}
+  - {rotulo: Seguradoras, valor: 3.3}
+  - {rotulo: Tesouro Direto, valor: 3.1}
+  - {rotulo: Governo, valor: 2.6}
+  - {rotulo: Outros, valor: 4.9}
+```
 
 ## Metade do orçamento vai para a dívida?
 

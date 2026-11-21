@@ -48,11 +48,18 @@ Em 2024, a [Emenda Constitucional 135](https://www.planalto.gov.br/ccivil_03/con
 
 Não há uma conta oficial para todo o setor público, e as estimativas variam conforme o período e o método.
 
-| Estimativa | Abrangência | Valor acima do teto |
-|---|---|---|
-| Comissão técnica do STF | magistratura e Ministério Público, 2025 | R$ 17 bilhões |
-| República.org e Movimento Pessoas à Frente | setor público, de agosto de 2024 a julho de 2025 | R$ 20 bilhões |
-| Carta do FGV Ibre, segundo a Revista Fórum | setor público, 2025 | R$ 24,3 bilhões |
+```grafico
+tipo: barras
+titulo: Quanto passa do teto por ano, segundo cada estimativa, em R$ bilhões
+fonte: STF, Nota Técnica de mar/2026; República.org; Carta do FGV Ibre
+descricao: A comissão técnica do STF estimou R$ 17 bilhões acima do teto na magistratura e no Ministério Público em 2025. O estudo da República.org e do Movimento Pessoas à Frente chegou a R$ 20 bilhões no setor público, de agosto de 2024 a julho de 2025, e a Carta do FGV Ibre, a R$ 24,3 bilhões em 2025.
+larguraRotulo: 170
+altura: 52
+itens:
+  - {rotulo: Comissão do STF, valor: 17, destaque: true, texto: "R$ 17 bi"}
+  - {rotulo: República.org, valor: 20, destaque: true, cor: amarelo, texto: "R$ 20 bi"}
+  - {rotulo: FGV Ibre, valor: 24.3, texto: "R$ 24,3 bi"}
+```
 
 O [estudo de Sergio Guedes-Reis](https://static.poder360.com.br/2025/11/estudo-funcionalismo-supersalarios-movimento-pessoas-a-frente-republica-nov-2025-ver-1.pdf) para a República.org e o Movimento Pessoas à Frente encontrou 53,5 mil pessoas acima do teto. Juízes e promotores ficam com quase 74% do valor. No Executivo federal, foram R$ 4,33 bilhões, dos quais 82,4% para advogados da União e procuradores federais, sobretudo em honorários. O estudo não cobre os executivos estaduais, as assembleias nem os tribunais de contas estaduais, e por isso é um piso. Já a [Carta do FGV Ibre](https://revistaforum.com.br/politica/judiciario-mp-supersalarios-2025/), com base em pesquisa do mesmo autor, chegou a R$ 24,3 bilhões pagos a 67,3 mil pessoas em 2025.
 
@@ -64,12 +71,19 @@ As carreiras afirmam que o teto ficou para trás, e a comissão do STF confirma 
 
 Juízes e promotores estaduais são pagos pelos estados, e um corte nessas carreiras alivia o caixa estadual, não o da União. Na Justiça da União, a comissão simulou, com cálculo da Consultoria de Orçamento do Senado sobre dados do Tribunal de Contas da União de 2025, quanto se economizaria com diferentes limites. A simulação não corresponde à regra que o STF depois adotou.
 
-| Limite acima do teto | Efeito anual na Justiça da União |
-|---|---|
-| Nenhum | economia de R$ 2,64 bilhões |
-| 30% | economia de R$ 826 milhões |
-| 50% | economia de R$ 36 milhões |
-| 70% | gasto adicional de R$ 180 milhões |
+```grafico
+tipo: barras
+titulo: Economia anual na Justiça da União, por limite acima do teto
+fonte: STF, Nota Técnica de mar/2026, com dados do TCU de 2025
+descricao: Na Justiça da União, pôr todos sob o teto economizaria R$ 2,64 bilhões por ano. Com um limite 30% acima do teto, a economia cai para R$ 826 milhões, e com 50%, para R$ 36 milhões. Com 70%, haveria gasto adicional de R$ 180 milhões.
+max: 3300
+larguraRotulo: 180
+itens:
+  - {rotulo: Sem limite extra, valor: 2640, destaque: true, texto: "R$ 2,64 bilhões"}
+  - {rotulo: 30% acima do teto, valor: 826, texto: "R$ 826 milhões"}
+  - {rotulo: 50% acima do teto, valor: 36, texto: "R$ 36 milhões"}
+  - {rotulo: 70% acima do teto, valor: 0, destaque: true, cor: amarelo, texto: "gasto de R$ 180 milhões"}
+```
 
 ## A régua nova do Supremo
 
@@ -78,6 +92,23 @@ Em 25 de março de 2026, o [STF fixou uma tese](https://noticias.stf.jus.br/post
 Uma resolução conjunta do CNJ e do Conselho Nacional do Ministério Público extinguiu 12 verbas, entre elas o auxílio-combustível e a licença por acúmulo de acervo. Os relatores estimaram economia de R$ 566 milhões por mês, cerca de R$ 6,8 bilhões por ano, segundo o [Estadão Conteúdo](https://www.folhape.com.br/politica/stf-tem-maioria-para-limitar-penduricalhos-na-magistratura-e-mp-a/476255/).
 
 O novo limite, contudo, ficou perto da média. Em 2025, o contracheque médio da magistratura estava 82% acima do teto, contados 13º e férias, e a régua nova autoriza até 70%. Em agosto, o [relator mandou sete tribunais de justiça](https://digital.stf.jus.br/publico/publicacao/991742) suspenderem os pagamentos acima do limite e devolverem o excesso.
+
+```grafico
+tipo: barras
+titulo: Contracheque médio e limites do teto, em R$ por mês
+fonte: STF, Nota Técnica de mar/2026; Lei 14.520/2023
+descricao: O teto é de R$ 46.366,19 por mês. Corrigido pela renda por habitante, seria de R$ 51.940; com 13º e férias distribuídos, de R$ 52.805,94; corrigido pelo IPCA, de R$ 63.469,11. O limite novo do STF, 70% acima do teto, é de R$ 78.822,52, e o contracheque médio da magistratura em 2025 foi de R$ 95.968,21.
+prefixo: "R$ "
+casas: 2
+larguraRotulo: 230
+itens:
+  - {rotulo: Teto atual, valor: 46366.19}
+  - {rotulo: Teto pela renda, valor: 51940, texto: "R$ 51.940,00"}
+  - {rotulo: Teto com 13º e férias, valor: 52805.94}
+  - {rotulo: Teto pelo IPCA, valor: 63469.11}
+  - {rotulo: Limite novo, valor: 78822.52, destaque: true, cor: amarelo}
+  - {rotulo: Contracheque médio, valor: 95968.21, destaque: true}
+```
 
 ## Congresso parado e promessas de corte
 

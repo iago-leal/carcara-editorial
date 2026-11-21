@@ -38,6 +38,18 @@ fontes:
 
 Os apostadores brasileiros perderam R$ 36,9 bilhões nas casas de apostas autorizadas em 2025, o primeiro ano do mercado regulado. Dos R$ 220,6 bilhões depositados, R$ 183,7 bilhões voltaram em prêmios e bônus sacáveis, segundo dados do Ministério da Fazenda obtidos pela [Folhapress via Lei de Acesso à Informação](https://www.jornaldocomercio.com/economia/2026/08/1260139-brasileiros-depositaram-rs-221-bi-em-bets-no-ano-passado-mostram-dados-da-fazenda.html). Assim, de cada R$ 100 depositados, R$ 16,73 ficaram com as casas. Com 25,2 milhões de apostadores, a perda média foi de R$ 1.464 por pessoa, 96% do [salário mínimo de 2025](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/d12342.htm), de R$ 1.518.
 
+```grafico
+tipo: cascata
+titulo: Depósitos nas bets autorizadas em 2025, em R$ bilhões
+fonte: Ministério da Fazenda, dados via LAI e Folhapress, ago/2026
+descricao: Dos R$ 220,6 bilhões depositados nas bets autorizadas em 2025, R$ 183,7 bilhões voltaram aos apostadores em prêmios e bônus sacáveis, e R$ 36,9 bilhões ficaram com as casas.
+casas: 1
+itens:
+  - {rotulo: Depositado, valor: 220.6}
+  - {rotulo: Voltou em prêmios, valor: -183.7}
+total: {rotulo: Ficou com as casas, valor: 36.9}
+```
+
 O valor coincide com a receita bruta das casas registrada pela [Secretaria de Prêmios e Apostas](https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas/apresentacoes/defeso-2deg-panorama-semestral-de-apostas-de-quota-fixa-jan-2026.pdf) do Ministério da Fazenda: R$ 36,96 bilhões, o total apostado menos os prêmios pagos. Em 25 de setembro de 2026, a Medida Provisória 1.394 proibiu as bets no país, e o Pix para o setor despencou.
 
 ## Quem apostava
@@ -75,14 +87,22 @@ A receita bruta não é lucro, já que dela ainda saem impostos, salários, publ
 
 As destinações legais somaram R$ 4,53 bilhões, repartidos por lei entre várias áreas. A saúde, que atende quem adoece pelo jogo, recebeu R$ 45,8 milhões, 1% do total.
 
-| Área | Destinação em 2025 |
-|---|---|
-| Esporte | R$ 1,63 bilhão |
-| Turismo | R$ 1,27 bilhão |
-| Segurança pública | R$ 614 milhões |
-| Educação | R$ 460 milhões |
-| Seguridade social | R$ 454 milhões |
-| Saúde | R$ 45,8 milhões |
+```grafico
+tipo: barras
+titulo: Destinações legais das bets em 2025, em R$ milhões
+fonte: Ministério da Fazenda, SPA, Panorama Semestral, jan/2026
+descricao: Dos R$ 4,53 bilhões em destinações legais de 2025, o esporte recebeu R$ 1,63 bilhão e o turismo, R$ 1,27 bilhão. A segurança pública ficou com R$ 614 milhões, a educação com R$ 460 milhões, a seguridade social com R$ 454 milhões e a saúde com R$ 45,8 milhões, 1% do total.
+max: 1625.5
+larguraRotulo: 200
+altura: 42
+itens:
+  - {rotulo: Esporte, valor: 1625.5, texto: "R$ 1,63 bi"}
+  - {rotulo: Turismo, valor: 1267.5, texto: "R$ 1,27 bi"}
+  - {rotulo: Segurança pública, valor: 614.4, texto: "R$ 614 mi"}
+  - {rotulo: Educação, valor: 459.5, texto: "R$ 460 mi"}
+  - {rotulo: Seguridade social, valor: 454.4, texto: "R$ 454 mi"}
+  - {rotulo: Saúde, valor: 45.8, destaque: true, texto: "R$ 45,8 mi"}
+```
 
 Ao mesmo tempo, muita gente pedia um freio. Até maio de 2026, mais de 574 mil pessoas usaram a [plataforma de autoexclusão](https://www.gov.br/saude/pt-br/assuntos/noticias/2026/maio/no-brasil-574-mil-pessoas-ja-usaram-plataforma-de-autoexclusao-de-bets-41-justificam-impactos-na-saude-mental) do governo, lançada em dezembro de 2025, para se bloquear em todas as casas autorizadas. Para 207 mil delas, o motivo principal foi a perda de controle sobre o jogo e o impacto na saúde mental.
 
@@ -91,6 +111,21 @@ Ao mesmo tempo, muita gente pedia um freio. Até maio de 2026, mais de 574 mil p
 A [MP 1.394](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1394.htm), publicada em 25 de setembro de 2026, proibiu as apostas de quota fixa em eventos esportivos e em jogos online, além da publicidade do setor. Novos depósitos ficaram vetados no mesmo dia, os sites e aplicativos saíram do ar em 6 de outubro, e os saldos tiveram de ser devolvidos. As autorizações foram extintas 30 dias depois da publicação, sem devolução das outorgas.
 
 Com a proibição, o Pix de pessoas para empresas do setor em que as bets se registram caiu de R$ 33,3 bilhões em agosto para R$ 25,1 bilhões em setembro e R$ 2,8 bilhões em outubro, uma queda de 91,7%, segundo as [estatísticas do Pix do Banco Central](https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/). A série, contudo, inclui clubes, academias e outras empresas de artes, cultura, esporte e recreação. Ela também não alcança os sites ilegais, dos quais mais de 25 mil endereços tinham sido bloqueados até dezembro de 2025.
+
+```grafico
+tipo: barras
+titulo: Pix para o setor em que as bets se registram, em R$ bilhões
+fonte: Banco Central, Estatísticas do Pix, CNAE seção R
+descricao: O Pix de pessoas para empresas de artes, cultura, esporte e recreação, setor em que as bets se registram, caiu de R$ 33,3 bilhões em agosto de 2026 para R$ 25,1 bilhões em setembro e R$ 2,8 bilhões em outubro, queda de 91,7%.
+prefixo: "R$ "
+casas: 1
+larguraRotulo: 130
+altura: 52
+itens:
+  - {rotulo: Ago/2026, valor: 33.3}
+  - {rotulo: Set/2026, valor: 25.1}
+  - {rotulo: Out/2026, valor: 2.8, destaque: true}
+```
 
 A proibição ainda não é definitiva, porque a MP precisa ser votada pelo [Congresso Nacional](https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/175871). Em 6 de novembro, ela aguardava a instalação da comissão mista. A partir de 9 de novembro, a MP passa a trancar a pauta de votações, e o prazo inicial para votá-la vai até 23 de novembro, prorrogável por mais 60 dias.
 

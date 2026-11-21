@@ -185,8 +185,11 @@ function cascata(spec) {
     quebrar(b.rotulo, 12).forEach((l, k) =>
       g += texto(x + w / 2, base + 30 + k * 22, l, { tam: 17, peso: b.total ? 700 : 400, cor: b.total ? 'texto' : 'suave', ancora: 'middle' }));
   });
-  const s = selo(spec, base + 96);
-  return { corpo: cab.svg + g + s.svg, altura: base + 96 + s.altura + 8 };
+  // A fonte desce conforme o rótulo mais longo, para não encostar nele.
+  const linhas = Math.max(...blocos.map((b) => quebrar(b.rotulo, 12).length));
+  const yS = base + 30 + (linhas - 1) * 22 + 50;
+  const s = selo(spec, yS);
+  return { corpo: cab.svg + g + s.svg, altura: yS + s.altura + 8 };
 }
 
 const TIPOS = { linha, barras, cascata };

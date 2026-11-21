@@ -38,6 +38,18 @@ De janeiro de 2020 a setembro de 2026, os preços subiram 44,6% pelo [IPCA](http
 
 O salário mínimo era de R$ 1.045 em fevereiro de 2020. Corrigido pelo IPCA de março de 2020 a setembro de 2026, período em que os preços subiram 44%, esse valor seria hoje de R$ 1.504,67. O mínimo atual, de R$ 1.621, fica 7,7% acima disso, segundo a [série do Banco Central](https://www3.bcb.gov.br/sgspub/). No caminho, ele passou por R$ 1.100 em 2021, R$ 1.212 em 2022, R$ 1.320 a partir de maio de 2023, R$ 1.412 em 2024 e R$ 1.518 em 2025. Em termos nominais, a alta foi de 55,1%.
 
+```grafico
+tipo: barras
+titulo: Mínimo contra o IPCA, em R$
+fonte: "Banco Central, SGS; IBGE, IPCA"
+descricao: O salário mínimo era de R$ 1.045 em fevereiro de 2020. Corrigido pelo IPCA até setembro de 2026, seria de R$ 1.504,67. O mínimo atual, de R$ 1.621, fica 7,7% acima disso.
+larguraRotulo: 220
+itens:
+  - {rotulo: Mínimo em fev/2020, valor: 1045, texto: "R$ 1.045"}
+  - {rotulo: Corrigido pelo IPCA, valor: 1504.67, texto: "R$ 1.504,67"}
+  - {rotulo: Mínimo de 2026, valor: 1621, destaque: true, texto: "R$ 1.621"}
+```
+
 ## A renda média de quem trabalha
 
 A [renda média real de todos os trabalhos](https://sidra.ibge.gov.br/tabela/6390), medida pela PNAD Contínua do IBGE, era de R$ 3.406 por mês no primeiro trimestre de 2020, em valores de hoje. No fim de 2021, depois da alta da inflação, caiu para R$ 3.074, perda de quase um décimo. No trimestre de julho a setembro de 2026, chegou a R$ 3.790, 11,3% acima do patamar de antes da pandemia e 3,6% acima de um ano antes. Sem descontar a inflação, a alta foi de R$ 2.376 para R$ 3.790, ou 59,5%. A mesma pesquisa mostra o desemprego no menor nível para o período desde 2012, como detalha a [matéria sobre o mercado de trabalho](/2026/11/desemprego-terceiro-trimestre-2026/).
@@ -50,27 +62,49 @@ A cesta básica de São Paulo custava R$ 519,76 em fevereiro de 2020 e R$ 922,51
 
 Dentro da cesta, o café triplicou de preço, e o óleo dobrou. Só feijão, farinha e açúcar subiram menos que a inflação.
 
-| Produto | Alta de fevereiro de 2020 a setembro de 2026 |
-|---|---|
-| Café | 215% |
-| Óleo | 99% |
-| Leite | 89% |
-| Carne | 86% |
-| Batata | 82% |
-| Tomate | 82% |
-| Banana | 78% |
-| Manteiga | 64% |
-| Pão | 57% |
-| Arroz | 49% |
-| Feijão | 43% |
-| Farinha | 36% |
-| Açúcar | 33% |
+```grafico
+tipo: barras
+titulo: Alta de preço de cada item da cesta, fev/2020 a set/2026, em %
+fonte: "DIEESE, cesta básica de São Paulo; IPCA do IBGE"
+descricao: De fevereiro de 2020 a setembro de 2026, o café subiu 215%, o óleo 99%, o leite 89%, a carne 86%, a batata e o tomate 82%, a banana 78%, a manteiga 64%, o pão 57%, o arroz 49%, o feijão 43%, a farinha 36% e o açúcar 33%. A inflação do período foi de 44%.
+sufixo: "%"
+larguraRotulo: 110
+altura: 36
+referencia: {valor: 44, rotulo: "IPCA: 44%"}
+itens:
+  - {rotulo: Café, valor: 215, destaque: true}
+  - {rotulo: Óleo, valor: 99}
+  - {rotulo: Leite, valor: 89}
+  - {rotulo: Carne, valor: 86}
+  - {rotulo: Batata, valor: 82}
+  - {rotulo: Tomate, valor: 82}
+  - {rotulo: Banana, valor: 78}
+  - {rotulo: Manteiga, valor: 64}
+  - {rotulo: Pão, valor: 57}
+  - {rotulo: Arroz, valor: 49}
+  - {rotulo: Feijão, valor: 43}
+  - {rotulo: Farinha, valor: 36}
+  - {rotulo: Açúcar, valor: 33}
+```
 
 Os valores do DIEESE são o gasto mensal com cada item nas quantidades definidas pelo Decreto-Lei 399, de 1938, e não o preço unitário.
 
 ## A conta em horas de trabalho
 
 Com o salário mínimo, a cesta pedia 109 horas e 25 minutos de trabalho em fevereiro de 2020. Em dezembro de 2022, chegou a 143 horas e 38 minutos, perto do maior valor do período, de 145 horas e 56 minutos em abril daquele ano. Hoje, pede 125 horas e 12 minutos. Assim, a cesta, que consumia metade do salário mínimo bruto em 2020, hoje consome 57%.
+
+```grafico
+tipo: barras
+titulo: Horas de trabalho para pagar a cesta
+fonte: "DIEESE, tempo de trabalho com salário mínimo, São Paulo"
+descricao: Com o salário mínimo, a cesta pedia 109 horas e 25 minutos de trabalho em fevereiro de 2020. O maior valor do período foi de 145 horas e 56 minutos em abril de 2022, e em dezembro de 2022 foi de 143 horas e 38 minutos. Em setembro de 2026, pede 125 horas e 12 minutos.
+larguraRotulo: 200
+itens:
+  - {rotulo: Fev/2020, valor: 109.42, texto: "109h25min"}
+  - {rotulo: "Abr/2022, o maior", valor: 145.93, texto: "145h56min"}
+  - {rotulo: Dez/2022, valor: 143.63, texto: "143h38min"}
+  - {rotulo: Set/2026, valor: 125.2, destaque: true, texto: "125h12min"}
+```
 
 Juntas, as duas contas mostram o efeito no bolso. Em fevereiro de 2020, depois de pagar a cesta, sobravam R$ 525,24 do salário mínimo. Corrigida pela inflação, essa sobra equivaleria hoje a R$ 756,29. Em setembro de 2026, sobram R$ 698,49, ou seja, R$ 58 a menos, uma queda de 7,6%.
 

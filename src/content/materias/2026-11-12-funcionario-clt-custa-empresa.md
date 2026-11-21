@@ -36,13 +36,19 @@ O ano de um empregado com carteira não tem 12 salários, e sim 13 e um terço. 
 
 Sobre essa folha, a empresa paga mais 35,8% em encargos. Desde setembro de 2020, por uma [tese do Supremo Tribunal Federal](https://portal.stf.jus.br/jurisprudenciaRepercussao/verAndamentoProcesso.asp?incidente=5255826&numeroProcesso=1072485&classeProcesso=RE&numeroTema=985), a contribuição incide também sobre o terço de férias.
 
-| Encargo da empresa | Alíquota | Valor no ano |
-|---|---|---|
-| INSS patronal | 20% | R$ 8.000 |
-| Seguro de acidente do trabalho | 2% | R$ 800 |
-| Sistema S, salário-educação e Incra | 5,8% | R$ 2.320 |
-| FGTS | 8% | R$ 3.200 |
-| Total | 35,8% | R$ 14.320 |
+```grafico
+tipo: cascata
+titulo: Encargos da empresa sobre R$ 40.000 de folha, R$ por ano
+fonte: Carcará, com Lei 8.212/1991, eSocial, Tabela 04, e Lei 8.036/1990
+descricao: Sobre a folha anual de R$ 40.000, a empresa paga R$ 8.000 de INSS patronal, R$ 800 de seguro de acidente, R$ 2.320 de Sistema S, salário-educação e Incra e R$ 3.200 de FGTS. Os encargos somam R$ 14.320 por ano, 35,8% da folha, e levam o custo a R$ 54.320.
+prefixo: "R$ "
+itens:
+  - {rotulo: INSS patronal, valor: 8000}
+  - {rotulo: Seguro de acidente, valor: 800}
+  - {rotulo: Sistema S e outros, valor: 2320}
+  - {rotulo: FGTS, valor: 3200}
+total: {rotulo: Encargos no ano, valor: 14320}
+```
 
 Com os encargos, o custo chega a R$ 54.320 por ano. O seguro de acidente varia de 1% a 3%, conforme o risco da atividade, e a conta usa o grau médio. Já a taxa de 5,8% é a do comércio e da indústria na [tabela de terceiros do eSocial](https://www.gov.br/esocial/pt-br/documentacao-tecnica/leiautes-esocial-versao-s-1-3-nt-07-2026/tabelas.html) e muda conforme a atividade da empresa.
 
@@ -64,6 +70,20 @@ O 13º também fica sem imposto. Somado o ano inteiro, o trabalhador paga R$ 3.3
 | FGTS, na conta do trabalhador | R$ 266,67 | R$ 6 |
 | Contribuições | R$ 1.205,98 | R$ 27 |
 | Custo total para a empresa | R$ 4.526,67 | R$ 100 |
+
+```grafico
+tipo: barras
+titulo: Para onde vão R$ 100 gastos pela empresa, em R$
+fonte: Carcará, com INSS e Receita Federal, 2026
+descricao: De cada R$ 100 que a empresa gasta com o funcionário de salário bruto de R$ 3.000, R$ 67 chegam ao bolso do trabalhador, com 13º e férias, R$ 6 vão para o FGTS, na conta dele, e R$ 27 para contribuições como INSS e Sistema S.
+prefixo: "R$ "
+larguraRotulo: 250
+altura: 52
+itens:
+  - {rotulo: Bolso do trabalhador, valor: 67, destaque: true}
+  - {rotulo: "FGTS, na conta dele", valor: 6, destaque: true, cor: amarelo}
+  - {rotulo: Contribuições, valor: 27}
+```
 
 Das contribuições, R$ 1.012,65 por mês vão para a Previdência, somados o INSS patronal, o seguro de acidente e o INSS descontado do empregado. Os outros R$ 193,33 vão para o salário-educação, que fica com R$ 83,33, e para o Sesc, o Senac, o Sebrae e o Incra.
 

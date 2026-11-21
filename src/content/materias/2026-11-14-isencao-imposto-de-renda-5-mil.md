@@ -49,6 +49,24 @@ A tabela mensal do imposto de renda é a mesma desde maio de 2025, segundo a [Re
 | R$ 7.000 | R$ 801,35 | R$ 754,74 | R$ 46,61 | 0,67% |
 | R$ 7.350 | R$ 884,13 | R$ 884,13 | R$ 0 | 0% |
 
+```grafico
+tipo: barras
+titulo: Quanto cada salário ganha por mês com a lei, em R$
+fonte: Carcará, com tabelas de 2026 da Receita Federal e INSS de 2026
+descricao: Para um empregado com carteira e sem dependentes, o ganho mensal com a Lei 15.270 é de R$ 0 com salário de R$ 3.000, R$ 114,76 com R$ 4.000, R$ 312,89 com R$ 5.000, R$ 179,75 com R$ 6.000, R$ 46,61 com R$ 7.000 e R$ 0 com R$ 7.350.
+prefixo: "R$ "
+casas: 2
+larguraRotulo: 120
+altura: 48
+itens:
+  - {rotulo: "R$ 3.000", valor: 0}
+  - {rotulo: "R$ 4.000", valor: 114.76}
+  - {rotulo: "R$ 5.000", valor: 312.89, destaque: true}
+  - {rotulo: "R$ 6.000", valor: 179.75}
+  - {rotulo: "R$ 7.000", valor: 46.61}
+  - {rotulo: "R$ 7.350", valor: 0}
+```
+
 A redução vale também para aposentadorias, pensões e o 13º salário. Quem recebe R$ 4.000 de cada uma de duas fontes não tem imposto retido no mês, mas a diferença pode ser cobrada na declaração anual, segundo a Receita. A regra chega à declaração de 2027, com isenção para rendimentos de até R$ 60.000 no ano e redução parcial até R$ 88.200. O custo completo de um empregado de R$ 3.000 está na [matéria sobre o funcionário CLT](/2026/11/funcionario-clt-custa-empresa/).
 
 ## Quanto custa
@@ -60,6 +78,20 @@ A estimativa oficial mais recente é a [Nota Cetad/Coest nº 134](https://www.go
 | 2026 | R$ 28,04 bilhões | R$ 23,76 bilhões | R$ 6,18 bilhões | R$ 1,90 bilhão |
 | 2027 | R$ 30,08 bilhões | R$ 27,22 bilhões | R$ 7,74 bilhões | R$ 4,87 bilhões |
 | 2028 | R$ 32,20 bilhões | R$ 27,54 bilhões | R$ 7,83 bilhões | R$ 3,17 bilhões |
+
+```grafico
+tipo: cascata
+titulo: Conta da isenção em 2026, R$ bilhões
+fonte: Receita Federal, Nota Cetad/Coest nº 134/2025
+descricao: Em 2026, a renúncia com a isenção é de R$ 28,04 bilhões. O imposto mínimo das altas rendas soma R$ 23,76 bilhões e os dividendos enviados ao exterior, R$ 6,18 bilhões, o que deixa um saldo de R$ 1,90 bilhão.
+casas: 2
+prefixo: "R$ "
+itens:
+  - {rotulo: Renúncia, valor: -28.04}
+  - {rotulo: Imposto mínimo, valor: 23.76}
+  - {rotulo: Dividendos no exterior, valor: 6.18}
+total: {rotulo: Saldo, valor: 1.90}
+```
 
 O custo medido ainda não saiu. De janeiro a setembro de 2026, o imposto retido sobre salários e aposentadorias caiu 3,5% em relação a 2025, já descontada a inflação, segundo a [análise da arrecadação da Receita](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/arrecadacao-federal/2026/analise-mensal-set-2026.pdf). A Receita, porém, não informa quanto dessa queda vem da lei.
 

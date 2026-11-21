@@ -80,7 +80,7 @@ O mecanismo está na diferença entre duas taxas. Em 12 meses até setembro, a t
 ```grafico
 tipo: barras
 titulo: Juro médio da dívida contra crescimento do PIB, 12 meses até set/2026
-fonte: Banco Central, Estatísticas Fiscais (Tabela 24) e SGS 4382; cálculo do Carcará
+fonte: Banco Central, Estatísticas Fiscais, Tabela 24, e SGS 4382; cálculo do Carcará
 descricao: Em 12 meses até setembro de 2026, a taxa de juros implícita da dívida bruta foi de 13,03%, e o PIB nominal cresceu 6,98%.
 casas: 2
 sufixo: "%"
