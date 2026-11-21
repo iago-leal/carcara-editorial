@@ -28,11 +28,44 @@ O pagamento do 13º salário em 2026 deve colocar R$ 399,1 bilhões na economia,
 
 A comparação com o Bolsa Família é de ordem de grandeza: confronta uma estimativa de pagamentos com uma dotação orçamentária.
 
+```grafico
+tipo: barras
+titulo: 13º salário de 2026 contra o Bolsa Família, R$ bilhões
+fonte: "DIEESE, nota de 13/11/2026; Bolsa Família: Agência Câmara, orçamento de 2026"
+descricao: O 13º de 2026 soma R$ 399,1 bilhões. Sem os R$ 70,8 bilhões do INSS já pagos, restam R$ 328,3 bilhões. A dotação do Bolsa Família em 2026 é de R$ 158,6 bilhões.
+prefixo: "R$ "
+sufixo: " bi"
+casas: 1
+larguraRotulo: 220
+altura: 56
+itens:
+  - {rotulo: 13º total, valor: 399.1, destaque: true}
+  - {rotulo: 13º sem o INSS, valor: 328.3}
+  - {rotulo: Bolsa Família, valor: 158.6, destaque: true, cor: amarelo}
+```
+
 ## Quem recebe
 
 O DIEESE estima 99,7 milhões de beneficiários: 62,5 milhões de trabalhadores com carteira assinada e 37,2 milhões de aposentados e pensionistas. O valor médio estimado é de R$ 3.720,24, calculado sem os aposentados dos regimes próprios de estados e municípios, para os quais a nota não traz o número de beneficiários.
 
 Em dinheiro, a divisão é outra. Os trabalhadores com carteira ficam com R$ 287,4 bilhões, ou 72,0% do total, e aposentados e pensionistas, com R$ 111,7 bilhões, ou 28,0%. Um assalariado com carteira recebe em média R$ 4.654, enquanto um aposentado do INSS recebe R$ 1.964, segundo a mesma nota.
+
+```grafico
+tipo: barras
+titulo: Quem recebe os R$ 399,1 bilhões do 13º, R$ bilhões
+fonte: DIEESE, nota de 13/11/2026, tabela 1
+descricao: Os trabalhadores com carteira recebem R$ 287,4 bilhões. Os aposentados e pensionistas do INSS, R$ 70,8 bilhões, já pagos entre abril e junho. Os aposentados dos estados recebem R$ 20,9 bilhões, os da União, R$ 12,5 bilhões, e os dos municípios, R$ 7,5 bilhões.
+prefixo: "R$ "
+sufixo: " bi"
+casas: 1
+larguraRotulo: 270
+itens:
+  - {rotulo: Trabalhadores com carteira, valor: 287.4, destaque: true}
+  - {rotulo: "INSS, já pago", valor: 70.8, destaque: true, cor: amarelo}
+  - {rotulo: Aposentados dos estados, valor: 20.9}
+  - {rotulo: Aposentados da União, valor: 12.5}
+  - {rotulo: Aposentados dos municípios, valor: 7.5}
+```
 
 ## O que já foi pago
 
@@ -50,13 +83,20 @@ Pela [Lei 4.749/1965](https://www.planalto.gov.br/ccivil_03/leis/l4749.htm), o 1
 
 Por região, o Sudeste fica com 47,8% do total, e só o estado de São Paulo, com R$ 112,7 bilhões, ou 28,2%. O Norte fica com 5,5%. Outros 3,1% são de aposentados da União e não têm região.
 
-| Região | Participação no total |
-|---|---|
-| Sudeste | 47,8% |
-| Nordeste | 16,8% |
-| Sul | 16,5% |
-| Centro-Oeste | 10,2% |
-| Norte | 5,5% |
+```grafico
+tipo: barras
+titulo: Participação de cada região no 13º de 2026
+fonte: DIEESE, nota de 13/11/2026
+descricao: O Sudeste fica com 47,8% do 13º, o Nordeste com 16,8%, o Sul com 16,5%, o Centro-Oeste com 10,2% e o Norte com 5,5%. Os 3,1% restantes são de aposentados da União, sem região.
+sufixo: "%"
+casas: 1
+itens:
+  - {rotulo: Sudeste, valor: 47.8, destaque: true}
+  - {rotulo: Nordeste, valor: 16.8}
+  - {rotulo: Sul, valor: 16.5}
+  - {rotulo: Centro-Oeste, valor: 10.2}
+  - {rotulo: Norte, valor: 5.5}
+```
 
 O valor médio também varia entre os estados. O Distrito Federal tem a maior média, R$ 7.069, e o Maranhão e o Piauí as menores, R$ 2.883 e R$ 2.901. O Distrito Federal recebe cerca de 2,5 vezes mais por pessoa que o Maranhão, em médias que excluem os aposentados dos regimes próprios de estados e municípios.
 
