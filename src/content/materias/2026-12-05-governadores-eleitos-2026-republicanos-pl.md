@@ -43,7 +43,7 @@ A população é a do [Censo 2022](https://sidra.ibge.gov.br/tabela/4714), e o P
 
 ## O avanço do PL
 
-Em 2022, o PL elegeu dois governadores, e a população governada por ele passou de 11,7% para 23,7%. Os balanços divulgados em outubro divergiram entre cinco e seis governos do partido, mas a lista final do TSE traz seis. No Rio de Janeiro, a última totalização foi em 10 de outubro: Douglas Ruas, do PL, teve 50,88% dos votos válidos, e Eduardo Paes, do PSD, ficou em segundo.
+Em 2022, o PL elegeu dois governadores, e a população governada por ele passou de 11,7% para 23,7%. Os balanços divulgados em outubro divergiram entre cinco e seis governos do partido, mas a lista final do TSE traz seis. No Rio de Janeiro, a última totalização foi em 10 de outubro: Douglas Ruas, do PL, teve 50,88% dos votos válidos, e Eduardo Paes, do PSD, ficou em segundo, com 44,16%.
 
 ## O peso do Republicanos
 
