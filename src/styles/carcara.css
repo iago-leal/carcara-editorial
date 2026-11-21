@@ -28,6 +28,19 @@
   --focus-outlineColor: #a84615;
 }
 
+/* Gráficos das matérias: sempre em quadro preto, com as cores do vídeo, nos dois temas
+   (decisão do Iago de 21/11/2026). */
+:root {
+  --grafico-fundo: #000000;
+  --grafico-capsula: #15110e;
+  --grafico-laranja: #ff904d;
+  --grafico-amarelo: #ffc766;
+  --grafico-texto: #f5f2ee;
+  --grafico-suave: #b3aaa1;
+  --grafico-serie: #6f6862;
+  --grafico-grade: #2a2520;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
