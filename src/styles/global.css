@@ -195,3 +195,34 @@ a.rotulo:hover {
   border-top: var(--borderWidth-default) solid var(--borderColor-default);
   margin-block: var(--base-size-40);
 }
+
+/* Gráficos das matérias (src/lib/graficos.mjs): quadro preto nos dois temas. */
+.grafico {
+  margin: var(--base-size-24, 1.5rem) 0;
+  padding: var(--base-size-8, 0.5rem);
+  background: var(--grafico-fundo);
+  border-radius: 12px;
+}
+.grafico svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--fontStack-sansSerif);
+}
+.grafico .g-texto { fill: var(--grafico-texto); }
+.grafico .g-suave { fill: var(--grafico-suave); }
+.grafico .g-laranja { fill: var(--grafico-laranja); }
+.grafico .g-amarelo { fill: var(--grafico-amarelo); }
+.grafico .g-escuro { fill: var(--grafico-fundo); }
+.grafico .g-fundo-laranja { fill: var(--grafico-laranja); }
+.grafico .g-fundo-amarelo { fill: var(--grafico-amarelo); }
+.grafico .g-fundo-serie { fill: var(--grafico-serie); }
+.grafico .g-capsula { fill: var(--grafico-capsula); stroke: var(--grafico-laranja); stroke-width: 2.5; }
+.grafico .g-grade { stroke: var(--grafico-grade); stroke-width: 1.5; }
+.grafico .g-regua { stroke: var(--grafico-amarelo); stroke-width: 3; stroke-dasharray: 2 8; stroke-linecap: round; }
+.grafico .g-conector { stroke: var(--grafico-suave); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.grafico .g-linha { fill: none; stroke: var(--grafico-serie); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.grafico .g-linha-destaque { fill: none; stroke: var(--grafico-laranja); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.grafico .g-fio-laranja { stroke: var(--grafico-laranja); stroke-width: 2; }
+.grafico .g-fio-amarelo { stroke: var(--grafico-amarelo); stroke-width: 2; }
+.grafico .g-tracejada { stroke-dasharray: 8 8; }
