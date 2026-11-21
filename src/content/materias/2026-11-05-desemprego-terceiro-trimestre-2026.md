@@ -34,23 +34,39 @@ A conta divide os 5,628 milhões de desocupados pelos 109,3 milhões de pessoas 
 
 A comparação com o mesmo trimestre de anos anteriores evita uma armadilha, porque a taxa costuma cair no fim do ano e subir no começo. A menor de toda a série foi de 5,1%, no trimestre de outubro a dezembro de 2025; de janeiro a março de 2026, a taxa já estava em 6,1%. Por isso, os 5,2% são o menor resultado para um terceiro trimestre, e não a mínima absoluta da série.
 
-| Ano | Desemprego de julho a setembro |
-|---|---|
-| 2012 | 7,1% |
-| 2013 | 7,0% |
-| 2014 | 6,8% |
-| 2015 | 9,0% |
-| 2016 | 11,9% |
-| 2017 | 12,5% |
-| 2018 | 12,0% |
-| 2019 | 11,9% |
-| 2020 | 14,9% |
-| 2021 | 12,7% |
-| 2022 | 8,7% |
-| 2023 | 7,7% |
-| 2024 | 6,4% |
-| 2025 | 5,6% |
-| 2026 | 5,2% |
+```grafico
+tipo: linha
+titulo: Desemprego em trimestres móveis, de jul-set/2024 a jul-set/2026, em %
+fonte: IBGE, PNAD Contínua, SIDRA tabela 6381
+descricao: A taxa de desemprego oscila com a estação. Depois de 7,0% no começo de 2025, caiu para a mínima da série, 5,1%, no trimestre até dezembro de 2025, subiu a 6,1% no trimestre até março de 2026 e voltou a 5,2% no trimestre até setembro de 2026.
+eixo: {min: 4, max: 8, passo: 1, sufixo: "%"}
+eixoX: {min: 2024.75, max: 2026.75, marcas: [2025, 2026]}
+series:
+  - nome: Desocupação
+    destaque: true
+    pontos: [[2024.75, 6.4], [2024.833, 6.2], [2024.917, 6.1], [2025.0, 6.2], [2025.083, 6.5], [2025.167, 6.8], [2025.25, 7.0], [2025.333, 6.6], [2025.417, 6.2], [2025.5, 5.8], [2025.583, 5.6], [2025.667, 5.6], [2025.75, 5.6], [2025.833, 5.4], [2025.917, 5.2], [2026.0, 5.1], [2026.083, 5.4], [2026.167, 5.8], [2026.25, 6.1], [2026.333, 5.8], [2026.417, 5.6], [2026.5, 5.4], [2026.583, 5.3], [2026.667, 5.3], [2026.75, 5.2]]
+marcas:
+  - {x: 2026.0, y: 5.1, rx: 2025.05, ry: 4.4, lado: direita, rotulo: "5,1%: mínima da série"}
+  - {x: 2026.25, y: 6.1, rx: 2025.95, ry: 7.5, lado: direita, rotulo: "6,1% em mar/2026"}
+  - {x: 2026.75, y: 5.2, rx: 2026.7, ry: 4.4, lado: esquerda, rotulo: "5,2%", cor: amarelo}
+```
+
+```grafico
+tipo: linha
+titulo: Desemprego de julho a setembro de cada ano, em %
+fonte: IBGE, PNAD Contínua, SIDRA tabela 6381
+descricao: No trimestre de julho a setembro, a taxa de desemprego foi de 7,1% em 2012, subiu até 14,9% em 2020, na pandemia, e caiu até 5,2% em 2026, o menor resultado para esse trimestre na série.
+eixo: {min: 0, max: 16, passo: 4, sufixo: "%"}
+eixoX: {min: 2012, max: 2026, marcas: [2012, 2016, 2020, 2024]}
+series:
+  - nome: Desocupação
+    destaque: true
+    pontos: [[2012, 7.1], [2013, 7.0], [2014, 6.8], [2015, 9.0], [2016, 11.9], [2017, 12.5], [2018, 12.0], [2019, 11.9], [2020, 14.9], [2021, 12.7], [2022, 8.7], [2023, 7.7], [2024, 6.4], [2025, 5.6], [2026, 5.2]]
+marcas:
+  - {x: 2012, y: 7.1, rx: 2012.3, ry: 3, lado: direita, rotulo: "7,1% em 2012", cor: amarelo}
+  - {x: 2020, y: 14.9, rx: 2017.6, ry: 15.3, lado: esquerda, rotulo: "14,9% em 2020"}
+  - {x: 2026, y: 5.2, rx: 2025, ry: 2.2, lado: esquerda, rotulo: "5,2% em 2026"}
+```
 
 Os picos da [série](https://sidra.ibge.gov.br/tabela/6381) foram de 13,9% no começo de 2017, depois da recessão, e de 14,9% na pandemia.
 
@@ -59,6 +75,19 @@ Os picos da [série](https://sidra.ibge.gov.br/tabela/6381) foram de 13,9% no co
 Para o IBGE, basta uma hora de trabalho na semana para a pessoa contar como ocupada. Por isso, 4,3 milhões de subocupados por insuficiência de horas aparecem como empregados: eles trabalham menos de 40 horas semanais, gostariam de trabalhar mais e estão disponíveis.
 
 Outros 4,9 milhões formam a força de trabalho potencial: querem trabalhar, mas não procuraram vaga ou procuraram e não podiam começar. Dentro desse grupo estão 2,5 milhões de desalentados, que desistiram de procurar por achar que não encontrariam trabalho.
+
+```grafico
+tipo: cascata
+titulo: Subutilização da força de trabalho, jul-set/2026, em milhões de pessoas
+fonte: IBGE, PNAD Contínua, SIDRA tabelas 6438 e 6441
+descricao: A subutilização soma 14,8 milhões de pessoas, formadas por 5,6 milhões de desocupados, 4,3 milhões de subocupados por insuficiência de horas e 4,9 milhões na força de trabalho potencial.
+casas: 1
+itens:
+  - {rotulo: Desocupados, valor: 5.6}
+  - {rotulo: Subocupados por horas, valor: 4.3}
+  - {rotulo: Força de trabalho potencial, valor: 4.9}
+total: {rotulo: Subutilização, valor: 14.8}
+```
 
 Somados aos desocupados, são 14,8 milhões de pessoas, 2,6 vezes o número que entra na taxa de desemprego. A [taxa composta de subutilização](https://sidra.ibge.gov.br/tabela/6441), medida recomendada pela Organização Internacional do Trabalho, fica em 13%.
 

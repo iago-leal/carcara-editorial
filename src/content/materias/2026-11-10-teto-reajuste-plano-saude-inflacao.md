@@ -30,6 +30,19 @@ A Agência Nacional de Saúde Suplementar (ANS) fixou em 5,11% o teto do reajust
 
 Desde 2000, os tetos da ANS acumularam 738,8%, enquanto o IPCA acumulou 403,0%, segundo a [tabela histórica dos reajustes individuais](https://www.gov.br/ans/pt-br/arquivos/assuntos/consumidor/reajustes-de-mensalidade/reajuste-anual-de-planos-individuais-familiares/metodologia-de-calculo/tabela_reajustes_individuais_2026.xlsx). Em 23 dos 27 anos, o teto ficou acima da inflação. As exceções foram 2000, 2002, 2003 e 2021.
 
+```grafico
+tipo: barras
+titulo: Alta acumulada de 2000 a 2026, em %
+fonte: "ANS, tabela dos reajustes individuais; IBGE, IPCA"
+descricao: De 2000 a 2026, os tetos de reajuste da ANS para planos individuais acumularam 738,8%, enquanto o IPCA acumulou 403,0%.
+casas: 1
+sufixo: "%"
+larguraRotulo: 190
+itens:
+  - {rotulo: Teto da ANS, valor: 738.8, destaque: true}
+  - {rotulo: IPCA, valor: 403.0}
+```
+
 ## No bolso
 
 Uma mensalidade de R$ 100 em maio de 2000 pode chegar a R$ 838,80 só com os reajustes autorizados pela ANS, até o ciclo 2026/2027. Corrigida pela inflação até setembro de 2026, ela estaria em R$ 477,78. A conta não inclui os aumentos por faixa etária.
@@ -42,11 +55,19 @@ Em março de 2026, havia 52.969.610 clientes de planos de assistência médica, 
 
 O reajuste médio dos coletivos foi de 10,76% em 2025 e de 9,90% nos dois primeiros meses de 2026, segundo o [boletim da ANS](https://www.gov.br/ans/pt-br/acesso-a-informacao/transparencia-e-prestacao-de-contas/Boletim_Conexo_e_Cidadania_1_edio_2026.pdf). De 2016 a 2025, a mensalidade média desses planos quase triplicou.
 
-| De 2016 a 2025 | Alta acumulada |
-|---|---|
-| Reajuste médio dos planos coletivos | 199,2% |
-| Teto dos planos individuais | 117,1% |
-| IPCA | 71,9% |
+```grafico
+tipo: barras
+titulo: Alta acumulada de 2016 a 2025, em %
+fonte: "ANS, Painel de Reajustes de Planos Coletivos e tabela dos reajustes individuais; IBGE, IPCA"
+descricao: De 2016 a 2025, o reajuste médio dos planos coletivos acumulou 199,2%, o teto dos planos individuais, 117,1%, e o IPCA, 71,9%.
+casas: 1
+sufixo: "%"
+larguraRotulo: 235
+itens:
+  - {rotulo: Planos coletivos, valor: 199.2, destaque: true}
+  - {rotulo: Teto dos individuais, valor: 117.1, destaque: true, cor: amarelo}
+  - {rotulo: IPCA, valor: 71.9}
+```
 
 A série dos coletivos é a do Painel de Reajustes de Planos Coletivos da ANS. O Carcará conferiu os números nos [dados abertos do sistema RPC](https://dadosabertos.ans.gov.br/FTP/PDA/RPC/), com a regra do painel, e a diferença ficou abaixo de 0,6 ponto em todos os anos.
 
@@ -64,18 +85,24 @@ Na medicina, febre é sinal, não é diagnóstico. O reajuste alto também é si
 
 Os números ajudam a responder a uma pergunta: o menor reajuste da história protege quem? Uma minoria. Para a maioria, que está nos coletivos, quem decide o aumento é a negociação, e nela o contrato pequeno tem menos força. Em todos os anos de 2016 a 2025, os contratos coletivos com até 29 vidas tiveram reajuste médio maior que os de 30 vidas ou mais.
 
-| Ano | Até 29 vidas | 30 vidas ou mais |
-|---|---|---|
-| 2016 | 16,94% | 15,05% |
-| 2017 | 16,86% | 13,86% |
-| 2018 | 15,64% | 11,33% |
-| 2019 | 13,50% | 9,99% |
-| 2020 | 11,15% | 7,10% |
-| 2021 | 8,94% | 5,94% |
-| 2022 | 14,15% | 10,79% |
-| 2023 | 18,71% | 12,44% |
-| 2024 | 17,99% | 11,86% |
-| 2025 | 14,73% | 9,76% |
+```grafico
+tipo: linha
+titulo: Reajuste dos coletivos por porte, em %
+fonte: "ANS, tabela por porte de 2021 e dados abertos do RPC; cálculo do Carcará"
+descricao: Em todos os anos de 2016 a 2025, o reajuste médio dos contratos coletivos com até 29 vidas ficou acima do dos contratos com 30 vidas ou mais. Em 2023, foi de 18,71% contra 12,44%; em 2025, de 14,73% contra 9,76%.
+eixo: {min: 0, max: 20, passo: 5, sufixo: "%"}
+eixoX: {min: 2016, max: 2025, marcas: [2016, 2018, 2020, 2022, 2024]}
+series:
+  - nome: Até 29 vidas
+    rotulo: Até 29 vidas
+    destaque: true
+    rotuloAbaixo: true
+    pontos: [[2016, 16.94], [2017, 16.86], [2018, 15.64], [2019, 13.5], [2020, 11.15], [2021, 8.94], [2022, 14.15], [2023, 18.71], [2024, 17.99], [2025, 14.73]]
+  - nome: 30 vidas ou mais
+    rotulo: 30 vidas ou mais
+    rotuloAbaixo: true
+    pontos: [[2016, 15.05], [2017, 13.86], [2018, 11.33], [2019, 9.99], [2020, 7.1], [2021, 5.94], [2022, 10.79], [2023, 12.44], [2024, 11.86], [2025, 9.76]]
+```
 
 De 2016 a 2020, os números são da tabela por porte que a ANS publicou em 2021. De 2021 a 2025, são do cálculo do Carcará nos dados abertos do sistema RPC, com a regra do painel da ANS.
 

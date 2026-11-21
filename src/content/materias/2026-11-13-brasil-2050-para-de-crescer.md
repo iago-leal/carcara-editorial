@@ -28,18 +28,46 @@ O Brasil para de crescer porque nascem menos crianças. Para a população se re
 
 A partir de 2042, morrem mais pessoas do que nascem: naquele ano, serão 2,06 milhões de óbitos contra 2,01 milhões de nascimentos. Em 2050, a diferença chega a 469 mil por ano.
 
-| Ano | População projetada |
-|---|---|
-| 2026 | 214,2 milhões |
-| 2041 | 220,4 milhões, o pico |
-| 2050 | 218,4 milhões |
-| 2057 | 213,8 milhões, abaixo de 2026 |
-| 2060 | 211,1 milhões |
-| 2070 | 199,2 milhões |
+```grafico
+tipo: linha
+titulo: População projetada do Brasil, milhões de pessoas
+fonte: IBGE, Projeções da População, Revisão 2024
+descricao: A população projetada era de 210,9 milhões em 2022 e de 214,2 milhões em 2026, chega ao pico de 220,4 milhões em 2041 e cai para 218,4 milhões em 2050. Em 2057, com 213,8 milhões, fica abaixo de 2026, e chega a 211,1 milhões em 2060 e a 199,2 milhões em 2070.
+eixo: {min: 190, max: 230, passo: 10}
+eixoX: {min: 2022, max: 2072, marcas: [2022, 2030, 2040, 2050, 2060, 2070]}
+series:
+  - nome: População
+    destaque: true
+    pontos: [[2022, 210.9], [2026, 214.2], [2041, 220.4], [2050, 218.4], [2057, 213.8], [2060, 211.1], [2070, 199.2]]
+marcas:
+  - {x: 2041, y: 220.4, rx: 2043, ry: 227, lado: direita, rotulo: "Pico em 2041: 220,4"}
+  - {x: 2026, y: 214.2, rx: 2023, ry: 197, lado: direita, rotulo: "2026: 214,2", cor: amarelo}
+  - {x: 2057, y: 213.8, rx: 2056, ry: 206, lado: esquerda, rotulo: "2057: 213,8", cor: amarelo}
+  - {x: 2070, y: 199.2, rx: 2069, ry: 193, lado: esquerda, rotulo: "2070: 199,2"}
+```
 
 ## Em 2036, mais idosos que crianças
 
 Hoje, o país tem 41,1 milhões de pessoas com até 14 anos e 25,6 milhões com 65 anos ou mais, segundo a [tabela de grupos etários da projeção](https://ftp.ibge.gov.br/Projecao_da_Populacao/Projecao_da_Populacao_2024/projecoes_2024_tab3_grupos_etarios_especificos.xlsx). Em 2036, as linhas se cruzam, com 35,7 milhões de pessoas de 65 anos ou mais e 34,5 milhões de até 14 anos. Se a régua for de 60 anos ou mais, o cruzamento ocorre já em 2029.
+
+```grafico
+tipo: linha
+titulo: Crianças e idosos no Brasil, milhões de pessoas
+fonte: IBGE, Projeções da População, Revisão 2024, grupos etários
+descricao: As pessoas com até 14 anos eram 43,0 milhões em 2022 e 41,1 milhões em 2026, e caem para 34,5 milhões em 2036, 29,7 milhões em 2050 e 23,8 milhões em 2070. As de 65 anos ou mais sobem de 22,0 milhões em 2022 e 25,6 milhões em 2026 para 35,7 milhões em 2036, 50,7 milhões em 2050 e 61,8 milhões em 2070. As linhas se cruzam em 2036.
+eixo: {min: 20, max: 70, passo: 10}
+eixoX: {min: 2022, max: 2072, marcas: [2022, 2030, 2040, 2050, 2060, 2070]}
+series:
+  - nome: 65 anos ou mais
+    destaque: true
+    rotulo: 65 anos ou mais
+    pontos: [[2022, 22.0], [2026, 25.6], [2036, 35.7], [2050, 50.7], [2070, 61.8]]
+  - nome: Até 14 anos
+    rotulo: Até 14 anos
+    pontos: [[2022, 43.0], [2026, 41.1], [2036, 34.5], [2050, 29.7], [2070, 23.8]]
+marcas:
+  - {x: 2036, y: 35.7, rx: 2024, ry: 58, lado: direita, rotulo: "2036: 35,7 e 34,5", cor: amarelo}
+```
 
 Ao mesmo tempo, os brasileiros vivem mais. A esperança de vida ao nascer passa de 77 anos em 2026 para 81,3 anos em 2050, e o grupo de 80 anos ou mais cresce de 5,2 milhões para 14,3 milhões no mesmo período. A idade mediana, que divide a população ao meio, sobe de 36,1 para 45,7 anos.
 
@@ -54,6 +82,21 @@ Ao mesmo tempo, os brasileiros vivem mais. A esperança de vida ao nascer passa 
 ## Menos gente em idade de trabalhar
 
 Uma forma de medir a mudança é comparar duas filas: a de quem tem de 15 a 64 anos, a idade de trabalhar, e a de quem tem 65 anos ou mais. Em 2026, são 5,8 pessoas na primeira para cada uma na segunda. Em 2041, serão 3,6; em 2050, 2,7; e em 2070, 1,8. A conta é do Carcará, a partir da razão de dependência de idosos que o IBGE publica.
+
+```grafico
+tipo: barras
+titulo: Pessoas de 15 a 64 anos para cada pessoa de 65 ou mais
+fonte: IBGE, Projeções da População, Revisão 2024; cálculo do Carcará
+descricao: Para cada pessoa com 65 anos ou mais, havia 5,8 pessoas de 15 a 64 anos em 2026. A razão cai para 3,6 em 2041, 2,7 em 2050 e 1,8 em 2070.
+casas: 1
+larguraRotulo: 80
+altura: 52
+itens:
+  - {rotulo: "2026", valor: 5.8}
+  - {rotulo: "2041", valor: 3.6}
+  - {rotulo: "2050", valor: 2.7, destaque: true}
+  - {rotulo: "2070", valor: 1.8, destaque: true, cor: amarelo}
+```
 
 A primeira fila também encolhe em números absolutos. Ela passa de 147,5 milhões de pessoas em 2026 para 138 milhões em 2050 e 113,6 milhões em 2070, uma perda de 33,9 milhões.
 

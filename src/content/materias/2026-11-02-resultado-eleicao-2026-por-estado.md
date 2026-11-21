@@ -34,7 +34,36 @@ Flávio, por sua vez, venceu com folga no Sul, com 62,58% dos votos válidos, e 
 
 Entre os turnos, Lula ganhou 4,8 milhões de votos no Sudeste, mais que os 2,96 milhões que acrescentou no Nordeste, onde passou de 21.494.584 para 24.450.432 votos.
 
+```grafico
+tipo: barras
+titulo: Votos que Lula somou entre os turnos, por região, em milhões
+fonte: TSE, arquivos de totalização do 1º e do 2º turno
+descricao: Entre os dois turnos, Lula somou 4,80 milhões de votos no Sudeste, 2,96 milhões no Nordeste, 1,33 milhão no Sul, 0,77 milhão no Centro-Oeste e 0,47 milhão no Norte.
+casas: 2
+larguraRotulo: 160
+itens:
+  - {rotulo: Sudeste, valor: 4.800333, destaque: true}
+  - {rotulo: Nordeste, valor: 2.955848, cor: amarelo}
+  - {rotulo: Sul, valor: 1.332846}
+  - {rotulo: Centro-Oeste, valor: 0.770876}
+  - {rotulo: Norte, valor: 0.474024}
+```
+
 Minas Gerais foi o único estado que mudou de vencedor. Flávio liderava no primeiro turno, e Lula venceu o segundo com 50,43% dos votos válidos, uma diferença de 109.313 votos num estado com mais de 12 milhões de votos válidos. Em São Paulo, maior colégio eleitoral do país, Flávio venceu com 53,85%, mas Lula subiu de 38,20% para 46,15% entre os turnos.
+
+```grafico
+tipo: barras
+titulo: São Paulo, % dos votos válidos
+fonte: TSE, arquivos de totalização do 1º e do 2º turno
+descricao: Em São Paulo, Lula teve 38,20% dos votos válidos no primeiro turno e 46,15% no segundo. Flávio Bolsonaro venceu o segundo turno no estado com 53,85%.
+casas: 2
+sufixo: "%"
+larguraRotulo: 230
+itens:
+  - {rotulo: Lula no 1º turno, valor: 38.20}
+  - {rotulo: Lula no 2º turno, valor: 46.15, destaque: true}
+  - {rotulo: Flávio no 2º turno, valor: 53.85, cor: amarelo}
+```
 
 Depois da eleição, percentuais do primeiro turno circularam como se fossem do segundo, entre eles os 48,24% de Minas Gerais e os 51,93% de São Paulo. Os números desta matéria saem dos [arquivos de totalização do TSE](https://resultados.tse.jus.br), com 100% das seções apuradas.
 
@@ -43,6 +72,19 @@ Depois da eleição, percentuais do primeiro turno circularam como se fossem do 
 O cruzamento do voto com a [renda domiciliar per capita de 2025, medida pelo IBGE](https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/45942-ibge-divulga-rendimento-domiciliar-per-capita-2025-para-brasil-e-unidades-da-federacao.html), mostra uma tendência: quanto maior a renda média do estado, menor costuma ser o voto em Lula. O coeficiente de correlação entre os 27 estados é de −0,50.
 
 Os extremos da renda ilustram o padrão. O Maranhão, com R$ 1.219 por pessoa, a menor renda do país, deu 69,54% dos votos válidos a Lula. O Distrito Federal, com R$ 4.538, a maior, deu 54,28% a Flávio.
+
+```grafico
+tipo: barras
+titulo: Voto em Lula no 2º turno nos extremos de renda, % dos votos válidos
+fonte: TSE, 2º turno; IBGE, PNAD Contínua 2025
+descricao: O Maranhão, com renda domiciliar per capita de R$ 1.219, a menor do país, deu 69,54% dos votos válidos a Lula. O Distrito Federal, com R$ 4.538, a maior, deu 45,72% a Lula e 54,28% a Flávio Bolsonaro.
+casas: 2
+sufixo: "%"
+larguraRotulo: 250
+itens:
+  - {rotulo: "Maranhão, R$ 1.219", valor: 69.54, destaque: true}
+  - {rotulo: "Distrito Federal, R$ 4.538", valor: 45.72}
+```
 
 A correlação, contudo, não indica causa. A média de um estado esconde milhões de escolhas diferentes, e a renda anda junto com região, idade, religião e escolaridade. O dado mostra um padrão, e não o motivo do voto de cada eleitor.
 

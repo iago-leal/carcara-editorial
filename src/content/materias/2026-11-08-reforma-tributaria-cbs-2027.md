@@ -48,12 +48,20 @@ A CBS também ocupa o lugar do IPI e do IOF sobre seguros e acaba com o tributo 
 
 Por isso, a medida da carga é a arrecadação. De 2012 a 2021, PIS, Cofins, IPI e IOF sobre seguros arrecadaram em média 4,99% do PIB, e a lei manda a CBS e o Seletivo arrecadarem essa mesma fatia. Os 11,3% saíram dessa conta, arredondados a partir de 11,3468%. A regra garante a arrecadação total, e não o preço de cada produto.
 
-| Medida | Alíquota |
-|---|---|
-| PIS e Cofins hoje, no cálculo por dentro | 9,25% |
-| PIS e Cofins convertidos para a régua da CBS | 10,19% |
-| Referência da CBS calculada pelo TCU | 11,3% |
-| CBS em 2027 e 2028, com o desconto legal de 0,1 ponto | 11,2% |
+```grafico
+tipo: barras
+titulo: PIS, Cofins e CBS, alíquotas em %
+fonte: "Leis 10.637 e 10.833; TCU, TC 006.529/2026-7; LC 214/2025, art. 347"
+descricao: Os 9,25% de PIS e Cofins de hoje, no cálculo por dentro, equivalem a 10,19% na régua da CBS. A referência da CBS calculada pelo TCU é de 11,3%, e a CBS em 2027 e 2028, com o desconto legal de 0,1 ponto, é de 11,2%.
+casas: 2
+sufixo: "%"
+larguraRotulo: 285
+itens:
+  - {rotulo: PIS e Cofins hoje, valor: 9.25}
+  - {rotulo: Hoje na régua da CBS, valor: 10.19, destaque: true, cor: amarelo}
+  - {rotulo: CBS de referência do TCU, valor: 11.3, destaque: true}
+  - {rotulo: CBS em 2027 e 2028, valor: 11.2}
+```
 
 ## Quem paga menos
 
@@ -70,6 +78,21 @@ Cigarros, bebidas alcoólicas, bebidas açucaradas, veículos, embarcações, ae
 ## A trava de 26,5%
 
 Somadas, CBS e IBS chegam perto de 28% nas contas da Fazenda: 26,47% na [nota técnica de julho de 2024](https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria/regulamentacao-da-reforma-tributaria/lei-geral-do-ibs-da-cbs-e-do-imposto-seletivo/notas/nota-tecnica-aliquotas_2024-07-01_sertmf-1.pdf), mais 1,47 ponto pelas mudanças aprovadas na Câmara, o que dá 27,94%. O [Comitê Gestor do IBS](https://www.cgibs.gov.br/upload/arquivos/202607/31144942-resoluc-ao-cgibs-n-14-de-29-de-julho-de-2026-proposta-percentual-ibs-cgibs-2027.pdf) trabalha com 27,91%.
+
+```grafico
+tipo: barras
+titulo: Soma de CBS e IBS e a trava, em %
+fonte: "Ministério da Fazenda, notas técnicas de 2024; Comitê Gestor do IBS, Resolução 14/2026"
+descricao: A nota técnica da Fazenda de julho de 2024 calculou a soma de CBS e IBS em 26,47%. Com 1,47 ponto pelas mudanças aprovadas na Câmara, chega a 27,94%. O Comitê Gestor do IBS trabalha com 27,91%. A trava legal é de 26,5%.
+casas: 2
+sufixo: "%"
+larguraRotulo: 230
+referencia: {valor: 26.5, rotulo: "Trava legal: 26,5%"}
+itens:
+  - {rotulo: "Fazenda, jul/2024", valor: 26.47}
+  - {rotulo: Fazenda mais Câmara, valor: 27.94, destaque: true}
+  - {rotulo: Comitê Gestor do IBS, valor: 27.91, destaque: true}
+```
 
 A lei tem uma trava de 26,5%, mas ela não é automática. Se a projeção para 2033, feita com dados de 2030, passar desse limite, o governo terá de enviar ao Congresso um projeto que reduza benefícios. Essa soma também não se compara com as alíquotas de ICMS, ISS, PIS, Cofins e IPI de hoje, porque a régua é outra.
 

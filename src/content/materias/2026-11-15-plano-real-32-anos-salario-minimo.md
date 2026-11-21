@@ -42,25 +42,50 @@ Com o real, os preços passaram a subir devagar, mas não pararam. Eles dobraram
 
 Nem tudo subiu igual. O aluguel que custava R$ 100 em 1994 custa hoje R$ 1.717,17, e a conta de luz, R$ 1.341,88. Já a televisão ficou 62% mais barata: os R$ 100 de 1994 equivalem a R$ 38,44.
 
-| Item do IPCA | Quanto valem hoje R$ 100 de julho de 1994 |
-|---|---|
-| Aluguel residencial | R$ 1.717,17 |
-| Energia elétrica residencial | R$ 1.341,88 |
-| Ônibus urbano | R$ 1.217,19 |
-| Gasolina | R$ 1.198,27 |
-| Pão francês | R$ 1.026,72 |
-| Alimentação e bebidas | R$ 885,21 |
-| Média do IPCA | R$ 840,22 |
-| Arroz | R$ 635,54 |
-| Vestuário | R$ 498,69 |
-| Artigos de residência | R$ 346,68 |
-| Televisor | R$ 38,44 |
+```grafico
+tipo: barras
+titulo: Quanto valem hoje R$ 100 de julho de 1994, por item do IPCA, em R$
+fonte: IBGE, IPCA, SIDRA tabelas 58, 655, 2938, 1419 e 7060; cálculo do Carcará
+descricao: R$ 100 de julho de 1994 valem hoje, em média, R$ 840,22. O aluguel sobe para R$ 1.717,17, a energia elétrica para R$ 1.341,88, o ônibus urbano para R$ 1.217,19, a gasolina para R$ 1.198,27, o pão francês para R$ 1.026,72 e alimentação e bebidas para R$ 885,21. Abaixo da média ficam o arroz, com R$ 635,54, o vestuário, com R$ 498,69, os artigos de residência, com R$ 346,68, e o televisor, com R$ 38,44.
+prefixo: "R$ "
+casas: 2
+max: 2000
+larguraRotulo: 235
+altura: 36
+referencia: {valor: 840.22, rotulo: "Média do IPCA: R$ 840,22"}
+itens:
+  - {rotulo: Aluguel, valor: 1717.17, destaque: true}
+  - {rotulo: Energia elétrica, valor: 1341.88}
+  - {rotulo: Ônibus urbano, valor: 1217.19}
+  - {rotulo: Gasolina, valor: 1198.27}
+  - {rotulo: Pão francês, valor: 1026.72}
+  - {rotulo: Alimentação e bebidas, valor: 885.21}
+  - {rotulo: Arroz, valor: 635.54}
+  - {rotulo: Vestuário, valor: 498.69}
+  - {rotulo: Artigos de residência, valor: 346.68}
+  - {rotulo: Televisor, valor: 38.44, destaque: true, cor: amarelo}
+```
 
 O IBGE publica a variação mensal de cada grupo e produto do IPCA, e a série cobre todo o período do real em cinco tabelas do SIDRA: a [58](https://sidra.ibge.gov.br/tabela/58), a [655](https://sidra.ibge.gov.br/tabela/655), a [2938](https://sidra.ibge.gov.br/tabela/2938), a [1419](https://sidra.ibge.gov.br/tabela/1419) e a [7060](https://sidra.ibge.gov.br/tabela/7060). O Carcará encadeou os 386 meses de cada série, de agosto de 1994 a setembro de 2026, sempre com o mesmo código do IBGE. Para testar o método, fez a mesma conta com o índice geral e chegou a R$ 840,24, diferença de 0,002% para o número-índice. Transportes, despesas pessoais e leite ficaram de fora, porque mudaram de definição no período.
 
 ## O salário mínimo
 
 Em julho de 1994, o salário mínimo era de R$ 64,79, segundo a [tabela histórica do INSS](https://www.gov.br/inss/pt-br/centrais-de-conteudo/publicacoes/outras/SalarioMinimo_052018.pdf), que indica como fundamento a Lei nº 9.069/1995, a lei do Plano Real. Desde 1º de janeiro de 2026, é de R$ 1.621, pelo Decreto nº 12.797/2025, segundo o [eSocial](https://www.gov.br/esocial/pt-br/noticias/novo-salario-minimo-2026-veja-como-registrar-o-reajuste-no-esocial-domestico). Em valor nominal, o mínimo se multiplicou por 25. Corrigido pelo IPCA, o de 1994 valeria R$ 544,38 hoje, e o atual vale 2,98 vezes isso, um ganho real de 197,8%.
+
+```grafico
+tipo: barras
+titulo: Salário mínimo de 1994 corrigido e o de hoje, em R$
+fonte: INSS, tabela histórica; eSocial; IBGE, IPCA, SIDRA tabela 1737; cálculo do Carcará
+descricao: O salário mínimo de julho de 1994, de R$ 64,79, corrigido pelo IPCA até setembro de 2026, valeria R$ 544,38. O de hoje é de R$ 1.621, 2,98 vezes esse valor, um ganho real de 197,8%.
+prefixo: "R$ "
+casas: 2
+max: 1900
+larguraRotulo: 250
+altura: 52
+itens:
+  - {rotulo: Mínimo de 1994 corrigido, valor: 544.38}
+  - {rotulo: Mínimo de hoje, valor: 1621, destaque: true, texto: "R$ 1.621"}
+```
 
 Em julho de 1994, R$ 100 eram 1,54 salário mínimo; hoje, os R$ 840,22 que equivalem a eles são 0,52 salário mínimo. O mesmo balanço da Fazenda registra que a cesta básica custava R$ 106,95 em 1º de julho de 1994, ou 1,65 salário mínimo da época, mas não informa de qual pesquisa nem de qual cidade é esse valor. A comparação mais recente, desde 2020, está na [matéria sobre salário, inflação e cesta básica](/2026/11/salario-minimo-inflacao-cesta-basica/).
 
