@@ -35,8 +35,9 @@ function formatar(spec, v, { sinal = false } = {}) {
 // Largura aproximada de um texto em Inter, para posicionar etiquetas sem medir no navegador.
 const larguraTexto = (s, tam, peso = 400) => String(s).length * tam * (peso >= 700 ? 0.6 : 0.55);
 
-function texto(x, y, s, { tam = FONTE, peso = 400, cor = 'texto', ancora = 'start' } = {}) {
-  return `<text x="${x}" y="${y}" font-size="${tam}" font-weight="${peso}" class="g-${cor}" text-anchor="${ancora}">${esc(s)}</text>`;
+function texto(x, y, s, { tam = FONTE, peso = 400, cor = 'texto', ancora = 'start', contorno = false } = {}) {
+  const classe = `g-${cor}${contorno ? ' g-contorno' : ''}`;
+  return `<text x="${x}" y="${y}" font-size="${tam}" font-weight="${peso}" class="${classe}" text-anchor="${ancora}">${esc(s)}</text>`;
 }
 
 // Título em cápsula de vidro escuro com borda laranja, como no vídeo.
@@ -133,18 +134,20 @@ function barras(spec) {
   const esq = MARGEM + larguraRotulo, dir = L - MARGEM - 110;
   const max = spec.max ?? Math.max(...spec.itens.map((i) => i.valor), spec.referencia?.valor ?? 0);
   const W = (v) => (v / max) * (dir - esq);
-  let g = '';
+  const fim = topo + spec.itens.length * passo;
+  // A régua da referência vai antes das barras, para que os valores, com contorno, fiquem por cima.
+  let g = spec.referencia
+    ? `<line x1="${esq + W(spec.referencia.valor)}" x2="${esq + W(spec.referencia.valor)}" y1="${topo - 10}" y2="${fim - passo + h + 8}" class="g-regua"/>`
+    : '';
   spec.itens.forEach((it, i) => {
     const y = topo + i * passo;
     const cor = it.destaque ? (it.cor ?? 'laranja') : 'serie';
     g += texto(esq - 12, y + h * 0.5 + 7, it.rotulo, { tam: 19, peso: it.destaque ? 700 : 400, cor: it.destaque ? 'texto' : 'suave', ancora: 'end' });
     g += `<rect x="${esq}" y="${y}" width="${Math.max(W(it.valor), 2).toFixed(1)}" height="${h}" rx="4" class="g-fundo-${cor}"/>`;
-    g += texto(esq + W(it.valor) + 10, y + h * 0.5 + 7, it.texto ?? formatar(spec, it.valor), { tam: 19, peso: 700, cor: it.destaque ? (it.cor ?? 'laranja') : 'texto' });
+    g += texto(esq + W(it.valor) + 10, y + h * 0.5 + 7, it.texto ?? formatar(spec, it.valor), { tam: 19, peso: 700, cor: it.destaque ? (it.cor ?? 'laranja') : 'texto', contorno: true });
   });
-  const fim = topo + spec.itens.length * passo;
   if (spec.referencia) {
     const x = esq + W(spec.referencia.valor);
-    g += `<line x1="${x}" x2="${x}" y1="${topo - 10}" y2="${fim - passo + h + 8}" class="g-regua"/>`;
     g += texto(x, fim + 18, spec.referencia.rotulo, { tam: 18, peso: 700, cor: 'amarelo', ancora: 'middle' });
   }
   const yS = fim + (spec.referencia ? 58 : 30);
