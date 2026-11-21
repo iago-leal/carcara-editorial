@@ -210,6 +210,7 @@ a.rotulo:hover {
   font-family: var(--fontStack-sansSerif);
 }
 .grafico .g-texto { fill: var(--grafico-texto); }
+.grafico .g-contorno { paint-order: stroke; stroke: var(--grafico-fundo); stroke-width: 6px; stroke-linejoin: round; }
 .grafico .g-suave { fill: var(--grafico-suave); }
 .grafico .g-laranja { fill: var(--grafico-laranja); }
 .grafico .g-amarelo { fill: var(--grafico-amarelo); }
